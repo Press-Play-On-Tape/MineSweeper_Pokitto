@@ -1,0 +1,1171 @@
+{
+	"lastBuffer": "main.cpp",
+	"PNGFlags": {
+		"ALL": [
+			"transparent=14",
+			"palette=${appPath}/PokittoLib/Pokitto/POKITTO_CORE/PALETTES/palPico.cpp"
+		]
+	},
+	"libs": {
+		"Pokitto": [
+			{
+				"recurse": "${appPath}/PokittoLib/Pokitto",
+				"ignore": "POKITTO_SIM|POKITTO_XTERNALS|Documentation|examples?|Physics|(?:.*_SIM.*)|main.cpp"
+			}
+		],
+		"linux": "Desktop",
+		"windows": "Desktop",
+		"darwin": "Desktop",
+		"Desktop": [
+			{
+				"recurse": "${appPath}/PokittoLib/Pokitto",
+				"ignore": "BmpImage.cpp|ChaN|old_32bitSDL|libpff|SDFileSystem|File/ChaN|USBDevice|tinydir/tests|tinydir/samples|JoyHat|mbed-pokitto|POKITTO_HW|POKITTO_XTERNALS|PokittoDisk.cpp|PokittoBattery.cpp|Documentation|examples?|Physics|main.cpp|Pokitto_simsound.cpp"
+			}
+		]
+	},
+	"SFlags": {
+		"Pokitto": [
+			"-I${projectPath}",
+			"-mcpu=cortex-m0plus",
+			"-mthumb"
+		]
+	},
+	"CPPFlags": {
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"RELEASE": [
+			"-O3"
+		],
+		"Pokitto": [
+			"-DPROJ_FPS=60",
+			"-I${projectPath}",
+			"-DPOKITTO",
+			"-fno-rtti",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-exceptions",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks",
+			"-fomit-frame-pointer",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wno-psabi",
+			"-Wno-conversion-null",
+			"-Wno-narrowing",
+			"-Wno-write-strings",
+			"-DTARGET_LPC11U68",
+			"-D__MBED__=1",
+			"-DDEVICE_I2CSLAVE=1",
+			"-DTARGET_LIKE_MBED",
+			"-DTARGET_NXP",
+			"-D__MBED_CMSIS_RTOS_CM",
+			"-DDEVICE_RTC=1",
+			"-DTOOLCHAIN_object",
+			"-D__CMSIS_RTOS",
+			"-DTOOLCHAIN_GCC",
+			"-DTARGET_CORTEX_M",
+			"-DTARGET_M0P",
+			"-DTARGET_UVISOR_UNSUPPORTED",
+			"-DDEVICE_SERIAL=1",
+			"-DDEVICE_INTERRUPTIN=1",
+			"-DTARGET_LPCTarget",
+			"-DTARGET_CORTEX",
+			"-DDEVICE_I2C=1",
+			"-D__CORTEX_M0PLUS",
+			"-DTARGET_FF_ARDUINO",
+			"-DTARGET_RELEASE",
+			"-DMBED_BUILD_TIMESTAMP=1526394586.66",
+			"-DARM_MATH_CM0PLUS",
+			"-DTARGET_LPC11U6X",
+			"-DDEVICE_SLEEP=1",
+			"-DTOOLCHAIN_GCC_ARM",
+			"-DDEVICE_SPI=1",
+			"-DDEVICE_ANALOGIN=1",
+			"-DDEVICE_PWMOUT=1",
+			"-DTARGET_LIKE_CORTEX_M0"
+		],
+		"Desktop": [
+			"-I${projectPath}",
+			"-DPOK_SIM",
+			"-Wall",
+			"-std=gnu++17",
+			"-fsigned-char",
+			"-DPOK_SIM",
+			"-fno-rtti",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks"
+		],
+		"ALL": [
+			"-std=c++17"
+		],
+		"linux": {
+			"extend": "Desktop",
+			"flags": [
+				"-DPROJ_LINUX=1",
+				"-D_REENTRANT"
+			]
+		},
+		"windows": "Desktop"
+	},
+	"CFlags": {
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"RELEASE": [
+			"-O3"
+		],
+		"Pokitto": [
+			"-I${projectPath}",
+			"-DPOKITTO",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-exceptions",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks",
+			"-fomit-frame-pointer",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wno-psabi",
+			"-Wwrite-strings",
+			"-DTARGET_LPC11U68",
+			"-D__MBED__=1",
+			"-DDEVICE_I2CSLAVE=1",
+			"-DTARGET_LIKE_MBED",
+			"-DTARGET_NXP",
+			"-D__MBED_CMSIS_RTOS_CM",
+			"-DDEVICE_RTC=1",
+			"-DTOOLCHAIN_object",
+			"-D__CMSIS_RTOS",
+			"-DTOOLCHAIN_GCC",
+			"-DTARGET_CORTEX_M",
+			"-DTARGET_M0P",
+			"-DTARGET_UVISOR_UNSUPPORTED",
+			"-DDEVICE_SERIAL=1",
+			"-DDEVICE_INTERRUPTIN=1",
+			"-DTARGET_LPCTarget",
+			"-DTARGET_CORTEX",
+			"-DDEVICE_I2C=1",
+			"-D__CORTEX_M0PLUS",
+			"-DTARGET_FF_ARDUINO",
+			"-DTARGET_RELEASE",
+			"-DMBED_BUILD_TIMESTAMP=1526394586.66",
+			"-DARM_MATH_CM0PLUS",
+			"-DTARGET_LPC11U6X",
+			"-DDEVICE_SLEEP=1",
+			"-DTOOLCHAIN_GCC_ARM",
+			"-DDEVICE_SPI=1",
+			"-DDEVICE_ANALOGIN=1",
+			"-DDEVICE_PWMOUT=1",
+			"-DTARGET_LIKE_CORTEX_M0"
+		],
+		"Desktop": [
+			"-I${projectPath}",
+			"-DPOK_SIM",
+			"-Wall",
+			"-fsigned-char",
+			"-DPOK_SIM",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks"
+		],
+		"ALL": [],
+		"linux": "Desktop",
+		"windows": "Desktop",
+		"darwin": "Desktop"
+	},
+	"GDBFlags": {
+		"Pokitto": [
+			"${projectPath}/${projectName}.elf"
+		]
+	},
+	"emuFlags": {
+		"Pokitto": [
+			"${projectPath}/${projectName}.bin"
+		]
+	},
+	"ELF2BINFlags": {
+		"Pokitto": [
+			"-O",
+			"binary",
+			"${projectPath}/${projectName}.elf",
+			"${projectPath}/${projectName}.bin"
+		]
+	},
+	"LDFlags": {
+		"RELEASE": [
+			"-O3"
+		],
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"Pokitto": [
+			"-Wl,--gc-sections",
+			"-Wl,-n",
+			"--specs=nano.specs",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wl,--undefined=g_pfnVectors",
+			"-Wl,--undefined=boot",
+			"-T",
+			"${appPath}/PokittoLib/Pokitto/mbed-pokitto/targets/cmsis/TARGET_NXP/TARGET_LPC11U6X/TOOLCHAIN_GCC_ARM/TARGET_LPC11U68/LPC11U68.ld",
+			"--output",
+			"${projectPath}/${projectName}.elf",
+			"$objectFiles",
+			"-Wl,--start-group",
+			"-lstdc++",
+			"-lsupc++",
+			"-lm",
+			"-lc",
+			"-lgcc",
+			"-lnosys",
+			"-Wl,--end-group"
+		],
+		"linux": [
+			"$objectFiles",
+			"-lpthread",
+			"-lSDL2",
+			"--output",
+			"${projectPath}/${projectName}"
+		],
+		"windows": [
+			"-static",
+			"-lmingw32",
+			"-L${appPath}/PokittoLib/Pokitto/POKITTO_SIM/SDL2/lib",
+			"-lSDL2main",
+			"-lSDL2",
+			"-lm",
+			"-ldinput8",
+			"-ldxguid",
+			"-ldxerr8",
+			"-luser32",
+			"-lgdi32",
+			"-lwinmm",
+			"-limm32",
+			"-lole32",
+			"-loleaut32",
+			"-lshell32",
+			"-lversion",
+			"-luuid",
+			"-lsetupapi",
+			"-static-libgcc",
+			"-mwindows",
+			"--output",
+			"${projectPath}/${projectName}.exe",
+			"$objectFiles"
+		]
+	},
+	"target": "Pokitto",
+	"pipelines": {
+		"Pokitto": [
+			"img-to-c",
+			"compile-cpp",
+			"compile-ld",
+			"compile-bin",
+			"make-img"
+		],
+		"Desktop": [
+			"img-to-c",
+			"compile-cpp",
+			"compile-ld"
+		],
+		"linux": "Desktop",
+		"windows": "Desktop"
+	},
+	"meta": {
+		"": {},
+		"/Bacon.png": {
+			"sdcard": false
+		},
+		"/Hello CPP.bin": {
+			"sdcard": false
+		},
+		"/File.cpp": {
+			"sdcard": false
+		},
+		"/Hello CPP.elf": {
+			"sdcard": false
+		},
+		"/My_settings.h": {
+			"sdcard": false
+		},
+		"/Smile.h": {
+			"sdcard": false
+		},
+		"/Smile.png": {
+			"sdcard": false
+		},
+		"/Test.h": {
+			"sdcard": false
+		},
+		"/Test.png": {
+			"sdcard": true
+		},
+		"/main.cpp": {
+			"sdcard": false
+		},
+		"/project.json": {
+			"sdcard": false
+		},
+		"\\project.json": {
+			"sdcard": false
+		},
+		"\\My_settings.h": {
+			"sdcard": false
+		},
+		"\\Smile.h": {
+			"sdcard": false
+		},
+		"\\main.cpp": {
+			"sdcard": false
+		},
+		"\\Smile.png": {
+			"sdcard": false
+		},
+		"\\New folder": {
+			"sdcard": false
+		},
+		"\\src": {
+			"sdcard": false
+		},
+		"\\src\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images": {
+			"sdcard": false
+		},
+		"\\src\\images\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\board": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\New Bitmap Image.bmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\sdfsd.bmp": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Blank.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Blank - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Annotation 2020-06-04 211039.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Bomb.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number4 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number5 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number5 - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number5 - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number5 - Copy (4).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Tile.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\BoardTiles.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Images.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Tile.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Blank.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Bomb.h": {
+			"sdcard": false
+		},
+		"\\MineSweeper_Pokitto.elf": {
+			"sdcard": false
+		},
+		"\\MineSweeper_Pokitto.bin": {
+			"sdcard": false
+		},
+		"\\src\\utils": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Enums.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Structs.h": {
+			"sdcard": false
+		},
+		"\\src\\entities": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Baord.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Board.cpp": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Board.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Number8 - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\QuestoinMark.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\QuestionMark.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\QuestionMark.h": {
+			"sdcard": false
+		},
+		"\\src\\Game.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game.h": {
+			"sdcard": false
+		},
+		"\\src\\states": {
+			"sdcard": false
+		},
+		"\\src\\states\\GamePlayState.cpp": {
+			"sdcard": false
+		},
+		"\\src\\states\\SplashScreenState.cpp": {
+			"sdcard": false
+		},
+		"\\src\\states\\GamePlayState.h": {
+			"sdcard": false
+		},
+		"\\src\\states\\States.h": {
+			"sdcard": false
+		},
+		"\\src\\states\\SplashScreenState.h": {
+			"sdcard": false
+		},
+		"\\src\\states\\TitleScreenState.cpp": {
+			"sdcard": false
+		},
+		"\\src\\states\\TitleScreenState.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Utils.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\GameCookie.h": {
+			"sdcard": false
+		},
+		"\\src\\states\\HighScoreState.h": {
+			"sdcard": false
+		},
+		"\\src\\states\\HighScoreState.cpp": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Constants.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Arrow.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Arrow.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Full.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_Full.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_A.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_A.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_B.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_B.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_C.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_C.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_D.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_D.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Dot.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Dot.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_E.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_E.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_F.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_F.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_G.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_G.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_H.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_H.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_I.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_I.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_J.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_J.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_K.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_K.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_L.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_L.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_M.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_M.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_N.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_N.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_O.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_O.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_P.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_P.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Q.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Q.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_R.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_R.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_S.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_S.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Space.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Space.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_T.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_T.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_U.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_U.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Underscore.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Underscore.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_V.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_V.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_W.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_W.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_X.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_X.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Y.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Y.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Z.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Char_Z.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\HS_Highlight.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\HS_Highlight.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\GameOver.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\GameOver.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\HighScore.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\HighScore.h": {
+			"sdcard": false
+		},
+		"\\src\\entities\\Entities.h": {
+			"sdcard": false
+		},
+		"\\MineSweeper_Pokitto.eeprom": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Stack.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Queue.h": {
+			"sdcard": false
+		},
+		"\\MineSweeper_Pokitto.exe": {
+			"sdcard": false
+		},
+		"\\EEP.ROM": {
+			"sdcard": false
+		},
+		"\\MineSweeper_Pokitto.bin.1.png": {
+			"sdcard": false
+		},
+		"\\MineSweeper_Pokitto.bin.1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\titlescreen": {
+			"sdcard": false
+		},
+		"\\src\\images\\titlescreen\\TitleScreen.jpg": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\TitleScreen.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\TitleScreen.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\titlescreen\\TitleScreen.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\titlescreen\\TitleScreen.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\MS_Poki.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\MS_Poki - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\MS_Poki - Copy (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\MS_Poki - Copy (3).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\MS_Poki - Copy (4).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\MS_Poki - Copy (5).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Bomb (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_TL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_T.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_TR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_L.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_R.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_BL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_B.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_BR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Pointer.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\MS_Poki.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_TL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_T.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_TR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_L.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_R.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_BL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_B.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_BR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Pointer.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\New folder": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_R.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_T.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_TL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_TR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Flag.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\MS_Poki.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Pointer.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\QuestionMark.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Tile.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Blank.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Bomb.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_B.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_BL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_BR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_L.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_R.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_T.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_TL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_TR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Flag.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\MS_Poki.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Number8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Pointer.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\QuestionMark.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Tile.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Blank.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\BoardTiles.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Bomb.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_B.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_BL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_BR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Backup\\Fence_L.h": {
+			"sdcard": false
+		},
+		"\\MineSweeper_Pokitto.bin.1.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Tile - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Tile_Rev.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Tile_Rev.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Flag_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Congratulations.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Congratulations.h": {
+			"sdcard": false
+		}
+	},
+	"ideVersion": 10000,
+	"BUILDFlags": {
+		"Pokitto": {}
+	}
+}
