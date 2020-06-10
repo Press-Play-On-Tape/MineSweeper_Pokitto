@@ -10,8 +10,9 @@ class GamePlayState {
     private:
 
         Board board;
-        Soldier soldiers[7];
-        Soldier bullets[4];
+        Entity soldiers[7];
+        Entity bullets[4];
+        Entity puffs[2];
 
         int16_t xOffset;
         int16_t yOffset;
@@ -21,6 +22,7 @@ class GamePlayState {
         uint8_t yCursor_GameOver;
         uint8_t bombExplosion;
         uint16_t counter;
+        uint16_t idx;
 
         bool gameOver;
         bool gameComplete;

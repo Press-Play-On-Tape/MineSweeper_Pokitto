@@ -23,6 +23,8 @@ namespace Images {
     #include "Fence_BL.h"
     #include "Fence_B.h"
     #include "Fence_BR.h"
+    #include "Fence_L_Broken.h"
+    #include "Fence_R_Broken.h"
     #include "Pointer.h"
 
     #include "Flag_00.h"
@@ -50,6 +52,8 @@ namespace Images {
         Fence_BL,
         Fence_B,
         Fence_BR,
+        Fence_L_Broken,
+        Fence_R_Broken,
     };
 
     const uint8_t * const Flags[] = { 

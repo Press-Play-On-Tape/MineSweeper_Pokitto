@@ -24,6 +24,8 @@ enum class Tiles : uint8_t {
     Fence_BL,
     Fence_B,
     Fence_BR,
+    Fence_L_Broken,
+    Fence_R_Broken,
     QuestionMark = 32,
     Flag = 64,
     Tile = 128,

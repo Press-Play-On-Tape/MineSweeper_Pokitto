@@ -9,21 +9,149 @@ using PS = Pokitto::Sound;
 
 const bool scroll[] = { false, true, true };
 
-const uint8_t marginLeft[] =      { 0, 0, 0 };
-const uint8_t marginRight[] =     { 0, 0, 0 };
-const uint8_t marginTop[] =       { 0, 0, 0 };
-const uint8_t marginBottom[] =    { 0, 0, 0 };
+const uint8_t marginLeft[] =        { 0, 0, 0 };
+const uint8_t marginRight[] =       { 0, 0, 0 };
+const uint8_t marginTop[] =         { 0, 0, 0 };
+const uint8_t marginBottom[] =      { 0, 0, 0 };
 
-const uint8_t xScroll_Left[] =    { 0, 7, 7 };
-const uint8_t xScroll_Right[] =   { 0, 11, 25 };
-const uint8_t yScroll_Top[] =     { 0, 5, 5 };
-const uint8_t yScroll_Bottom[] =  { 0, 12, 12 };
+const uint8_t xScroll_Left[] =      { 0, 7, 7 };
+const uint8_t xScroll_Right[] =     { 0, 11, 25 };
+const uint8_t yScroll_Top[] =       { 0, 5, 5 };
+const uint8_t yScroll_Bottom[] =    { 0, 12, 12 };
 
-const int8_t shakeXOffset[] =     { -1,  0, 0, 1, 0, 0, 1, -1,  0, -1,  0, 1,  0, -2, 0, 2, 0, 2,  0, -2 };
-const int8_t shakeYOffset[] =     {  0, -1, 0, 0, 1, 0, 0,  1, -1,  0, -1, 0, -1,  0, 2, 0, 2, 0, -2,  0 };
+const int8_t shakeXOffset[] =       { -1,  0, 0, 1, 0, 0, 1, -1,  0, -1,  0, 1,  0, -2, 0, 2, 0, 2,  0, -2 };
+const int8_t shakeYOffset[] =       {  0, -1, 0, 0, 1, 0, 0,  1, -1,  0, -1, 0, -1,  0, 2, 0, 2, 0, -2,  0 };
 
-const int8_t soldierX[] =         { -20, -32, -42, -52, -18, -29, -40 };
-const int8_t soldierY[] =         { 30, 38, 26, 32, 70, 72, 66 };
+const int8_t soldierX[] =           { -20, -32, -42, -52, -18, -29, -40 };
+const uint8_t soldierY[7][272] =    {
+                                    { 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, // 16
+                                      30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 31, 32, 32, 32, 32, // 32
+                                      31, 31, 31, 30, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, // 48
+                                      31, 31, 31, 30, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, // 64
+                                      31, 31, 31, 30, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, // 80
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 96
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 112
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 128
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 144
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 160
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 176
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 192
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 208
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 224
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 240
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 256
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 272
+                                       },
+                                    { 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 16
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 32
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 48
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 64
+                                      38, 38, 38, 38, 38, 37, 37, 37, 37, 36, 36, 36, 36, 35, 35, 35, // 80
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 96
+                                      32, 32, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 36, // 112
+                                      36, 36, 37, 37, 37, 37, 37, 37, 37, 37, 38, 38, 38, 38, 38, 38, // 128
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 144
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 160
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 176
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 192
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 208
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 224
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 240
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 256
+                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 272
+                                       },
+                                    { 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 16
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 32
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 48
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 64
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 27, 27, // 80
+                                      27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 29, 30, 30, 30, 30, 31, // 96
+                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 112
+                                      32, 32, 31, 31, 31, 30, 30, 30, 29, 29, 29, 28, 28, 28, 27, 27, // 128
+                                      27, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 144
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 160
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 176
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 192
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 208
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 224
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 240
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 256
+                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 272
+                                       },
+                                    { 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 16
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 32
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 48
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 64
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 80
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 96
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 112
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 128
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 144
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 160
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 176
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 192
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 208
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 224
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 240
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 256
+                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 272
+                                       },
+                                    { 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 16
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 32
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 48
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 125, 125, // 64
+                                      125, 125, 124, 124, 124, 124, 124, 124, 124, 124, 125, 125, 125, 125, 126, 126, // 80
+                                      126, 126, 127, 127, 127, 128, 128, 128, 128, 128, 128, 128, 128, 127, 127, 127, // 96
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 112
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 128
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 144
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 160
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 176
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 192
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 208
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 224
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 240
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 256
+                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 272
+                                       },
+                                    { 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 16
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 32
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 48
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 64
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 80
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 129, 129, 129, 129, 130, 130, // 96
+                                      130, 130, 130, 130, 130, 130, 130, 130, 129, 129, 129, 129, 129, 128, 128, 128, // 112
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 128
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 144
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 160
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 176
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 192
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 208
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 224
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 240
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 256
+                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 272
+                                       },
+                                    { 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 16
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 32
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 48
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 64
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 80
+                                      122, 122, 122, 122, 122, 122, 123, 123, 123, 123, 124, 124, 124, 124, 125, 125, // 96
+                                      125, 125, 126, 126, 126, 126, 127, 127, 127, 127, 128, 128, 128, 128, 128, 128, // 112
+                                      128, 128, 128, 127, 127, 127, 127, 126, 126, 126, 126, 125, 125, 125, 125, 124, // 128
+                                      124, 124, 124, 123, 123, 123, 123, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 144
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 160
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 176
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 192
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 208
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 224
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 240
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 256
+                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 272
+                                       }
+                                    };
+
 
 // ----------------------------------------------------------------------------
 //  Initialise state ..
@@ -43,19 +171,20 @@ void GamePlayState::activate(GameContext gameContext) {
     this->bombCount = 0;
     this->bombExplosion = 0;
     this->counter = 0;
+    this->idx = 0;
 
-    for (uint8_t x = 0; x < 7; x++) {
+    for (uint8_t i = 0; i < 7; i++) {
 
-        this->soldiers[x].x = soldierX[x];
-        this->soldiers[x].y = soldierY[x];
-        this->soldiers[x].stance = Stance::Walking;
+        this->soldiers[i].x = soldierX[i];
+        this->soldiers[i].y = soldierY[i][0];
+        this->soldiers[i].stance = Stance::Walking;
 
     }
 
-    for (uint8_t x = 0; x < 4; x++) {
+    for (uint8_t i = 0; i < 4; i++) {
 
-        this->bullets[x].x = -10;
-        this->bullets[x].y = -10;
+        this->bullets[i].x = -10;
+        this->bullets[i].y = -10;
 
     }
 
@@ -85,10 +214,33 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
 
     }
 
+
+    for (uint8_t i = 0; i < 2; i++) {
+
+        if (this->puffs[i].counter > 0) {
+            
+            this->puffs[i].counter--;
+
+            if (this->puffs[i].counter == 0) {
+
+                this->puffs[i].x = -10;
+
+            }
+            else if (puffs[i].counter == 8) {
+
+                this->board.setTile(puffs[i].tileX, puffs[i].tileY, puffs[i].tile);
+
+            }
+
+        }
+
+    }
+
+
     if (this->counter > 0) {
 
         this->counter--;
-printf("%i \n", counter);
+printf("%i %i \n", counter, idx);
 
         switch (counter) {
 
@@ -99,56 +251,68 @@ printf("%i \n", counter);
                     if (this->xOffset > -4) this->xOffset--;
                     if (this->yOffset > 0)  this->yOffset--;
                 }
+                
+                if (this->xOffset == -4 && this->yOffset == 0) this->counter = 910;
                 break;
                 
             case 865 ... 909:
+            case 560 ... 799:
 
-                for (uint8_t x = 0; x < 7; x++) {
+                for (uint8_t i = 0; i < 7; i++) {
 
-                    this-soldiers[x].x++;
+                    this->soldiers[i].x++;
+                    this->soldiers[i].y = soldierY[i][idx];
+                    this->soldiers[i].stance = Stance::Walking;
 
                 }
+                idx++;
+                break;
+
+            case 559:
+                gameContext.gameComplete = this->gameComplete;
+                gameContext.time = this->time;
+                gameContext.currentState = GameState::HighScore_Activate;
                 break;
           
             case 854 ... 864:
 
-                for (uint8_t x = 0; x < 7; x++) {
+                for (uint8_t i = 0; i < 7; i++) {
 
-                    this->soldiers[x].stance = Stance::Standing;
+                    this->soldiers[i].stance = Stance::Standing;
 
                 }
                 break;
           
             case 853:
-                this->bullets[0].x = this->soldiers[0].x + 4;
-                this->bullets[0].y = this->soldiers[0].y + 4;
+                this->bullets[0].x = this->soldiers[0].x + 9;
+                this->bullets[0].y = this->soldiers[0].y + 7;
                 break;
 
             case 836:
-                this->updateBullets;
-                this->bullets[1].x = this->soldiers[4].x + 4;
-                this->bullets[1].y = this->soldiers[4].y + 4;
+                this->updateBullets();
+                this->bullets[1].x = this->soldiers[4].x + 9;
+                this->bullets[1].y = this->soldiers[4].y + 7;
                 break;
 
             case 824:
-                this->updateBullets;
-                this->bullets[2].x = this->soldiers[0].x + 4;
-                this->bullets[2].y = this->soldiers[0].y + 4;
+                this->updateBullets();
+                this->bullets[2].x = this->soldiers[0].x + 9;
+                this->bullets[2].y = this->soldiers[0].y + 7;
                 break;
 
             case 816:
-                this->updateBullets;
-                this->bullets[3].x = this->soldiers[4].x + 4;
-                this->bullets[3].y = this->soldiers[4].y + 4;
+                this->updateBullets();
+                this->bullets[3].x = this->soldiers[4].x + 9;
+                this->bullets[3].y = this->soldiers[4].y + 7;
                 break;
 
             case 837 ... 852:
             case 825 ... 835:
             case 817 ... 823:
-                this->updateBullets;
+            case 800 ... 815:
+                this->updateBullets();
                 break;
 
-            case 856:
 
                 
         }
@@ -167,56 +331,60 @@ printf("%i \n", counter);
 
     // Handle player actions ..
 
-    if (PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 3)) {
+    if (this->counter == 0) {
 
-        if (this->board.getCursorX() > 1) this->board.setCursorX(board.getCursorX() - 1);
+        if (PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 3)) {
 
-        if (scrollBoard) {
+            if (this->board.getCursorX() > 1) this->board.setCursorX(board.getCursorX() - 1);
 
-            if (this->board.getCursorX() >= xLeftScroll && this->board.getCursorX() < xRightScroll) {
-                this->xOffset--;
+            if (scrollBoard) {
+
+                if (this->board.getCursorX() >= xLeftScroll && this->board.getCursorX() < xRightScroll) {
+                    this->xOffset--;
+                }
+
+            }
+            
+        }
+
+        if (PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 3)) {
+            
+            if (this->board.getCursorX() < this->board.getWidth() - 2) this->board.setCursorX(this->board.getCursorX() + 1);
+
+            if (scrollBoard) {
+
+                if (this->board.getCursorX() > xLeftScroll && this->board.getCursorX() <= xRightScroll) {
+                    this->xOffset++;
+                }
+
             }
 
         }
-        
-    }
 
-    if (PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 3)) {
-        
-        if (this->board.getCursorX() < this->board.getWidth() - 2) this->board.setCursorX(this->board.getCursorX() + 1);
+        if (PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 3)) {
+            
+            if (board.getCursorY() > 1) board.setCursorY(board.getCursorY() - 1);
 
-        if (scrollBoard) {
+            if (scrollBoard) {
 
-            if (this->board.getCursorX() > xLeftScroll && this->board.getCursorX() <= xRightScroll) {
-                this->xOffset++;
+                if (this->board.getCursorY() >= yTopScroll && this->board.getCursorY() < yBottomScroll) {
+                    this->yOffset--;
+                }
+
             }
-
+            
         }
 
-    }
+        if (PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 3)) {
+            
+            if (board.getCursorY() < board.getHeight() - 2) board.setCursorY(board.getCursorY() + 1);
+            
+            if (scrollBoard) {
 
-    if (PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 3)) {
-        
-        if (board.getCursorY() > 1) board.setCursorY(board.getCursorY() - 1);
+                if (this->board.getCursorY() > yTopScroll && this->board.getCursorY() <= yBottomScroll) {
+                    this->yOffset++;
+                }
 
-        if (scrollBoard) {
-
-            if (this->board.getCursorY() >= yTopScroll && this->board.getCursorY() < yBottomScroll) {
-                this->yOffset--;
-            }
-
-        }
-        
-    }
-
-    if (PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 3)) {
-        
-        if (board.getCursorY() < board.getHeight() - 2) board.setCursorY(board.getCursorY() + 1);
-        
-        if (scrollBoard) {
-
-            if (this->board.getCursorY() > yTopScroll && this->board.getCursorY() <= yBottomScroll) {
-                this->yOffset++;
             }
 
         }
@@ -383,27 +551,39 @@ void GamePlayState::renderBoard() {
 
     // Draw Soldiers ..
 
-    for (uint8_t x = 0; x < 7; x++) {
+    for (uint8_t i = 0; i < 7; i++) {
 
-        switch (this->soldiers[x].stance) {
+        switch (this->soldiers[i].stance) {
 
             case Stance::Walking:
-                PD::drawBitmap(this->soldiers[x].x, this->soldiers[x].y, Images::Soldiers[Utils::getFrameCount(4) / 2]);
+
+                PD::drawBitmap(this->soldiers[i].x, this->soldiers[i].y, Images::Soldiers[Utils::getFrameCount(4) / 2]);
                 break;
 
             case Stance::Standing:
-                PD::drawBitmap(this->soldiers[x].x, this->soldiers[x].y, Images::Soldiers[0]);
+                PD::drawBitmap(this->soldiers[i].x, this->soldiers[i].y, Images::Soldiers[0]);
                 break;
 
         }
 
     }
 
-    for (uint8_t x = 0; x < 4; x++) {
+    for (uint8_t i = 0; i < 4; i++) {
 
-        if (this->bullets[x].x > 0) {
+        if (this->bullets[i].x > 0) {
 
-            PD::drawPixel(this->bullets[x].x, this->bullets[x].y, 0);
+            PD::drawPixel(this->bullets[i].x, this->bullets[i].y, 0);
+
+        }
+
+    }
+
+    for (uint8_t i = 0; i < 2; i++) {
+
+        if (this->puffs[i].x > 0) {
+
+            uint8_t frame = (15 - this->puffs[i].counter) / 4;
+            PD::drawBitmap(this->puffs[i].x, this->puffs[i].y, Images::Puff[frame]);
 
         }
 
@@ -452,7 +632,7 @@ void GamePlayState::renderBoard() {
 
 void GamePlayState::renderCursor() {
 
-    if (this->bombExplosion == 0) {
+    if (this->bombExplosion == 0 && this->counter == 0) {
 
         uint8_t xMarginLeft = marginLeft[ static_cast<uint8_t>(this->board.getGameMode()) ];
         uint8_t xMarginRight = marginRight[ static_cast<uint8_t>(this->board.getGameMode()) ];
@@ -467,13 +647,31 @@ void GamePlayState::renderCursor() {
 
 void GamePlayState::updateBullets() {
 
-    for (uint8_t x = 0; x < 4; x++) {
+    const uint8_t puffX = 64;
+    const uint8_t puffY[] = { 32, 128 };
+    
+    for (uint8_t i = 0; i < 4; i++) {
 
-        if (this->bullets[x].x > 0) {
+        if (this->bullets[i].x > 0) {
             
-            this->bullets[x].x = this->bullets[x].x + 3;
+            this->bullets[i].x = this->bullets[i].x + 3;
 
-            if (this->bullets[x].x > 72) this->bullets[x].x = -1;
+            if (this->bullets[i].x > 72 && this->bullets[i].x < 76) {
+
+                if (i >= 2) {
+
+                    this->puffs[i % 2].x = puffX;
+                    this->puffs[i % 2].y = puffY[i % 2];
+                    this->puffs[i % 2].counter = 15;
+                    this->puffs[i % 2].tile = Tiles::Fence_L_Broken;
+                    this->puffs[i % 2].tileX = 0;
+                    this->puffs[i % 2].tileY = (i % 2 == 0 ? 2 : 8);
+
+                }
+            
+                this->bullets[i].x = -1;
+
+            }
 
         }
 

@@ -43,7 +43,6 @@ class Board {
         void setState(uint8_t x, uint8_t y, Tiles tile);
 
         void setBoard();
-        void printBoard();
         void toggleFlag();
         void exposeBoard();
         bool isComplete();

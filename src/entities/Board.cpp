@@ -220,7 +220,6 @@ void Board::setBoard() {
 
     // Print board ..
     
-    //this->printBoard();
     this->cursorX = 1;
     this->cursorY = 1;
 
@@ -306,29 +305,6 @@ void Board::toggleFlag() {
             break;
         
     }
-
-}
-
-void Board::printBoard() {
-
-    uint8_t h = this->height;
-    uint8_t w = this->width;
-
-    // Print board ..
-
-    for (uint8_t y = 0; y < h; y++) {
-
-        for (uint8_t x = 0; x < w; x++) {
-
-            printf("%i ", (uint8_t)this->getTile(x, y));
-            
-        }
-
-        printf("\n");
-        
-    } 
-
-    printf("\n\n");
 
 }
 
