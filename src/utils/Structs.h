@@ -15,6 +15,14 @@ struct GameContext {
 
 };
 
+struct Soldier {
+
+    int16_t x;
+    int16_t y;
+    Stance stance;
+
+};
+
 struct TileDetails {
 
     int8_t x;

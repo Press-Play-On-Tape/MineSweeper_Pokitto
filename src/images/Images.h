@@ -1,6 +1,8 @@
 #pragma once
     
 #include "board/BoardTiles.h"
+#include "puff/Puffs.h"
+#include "soldiers/Soldiers.h"
 
 namespace Images {
 
@@ -53,6 +55,7 @@ namespace Images {
 
     #include "highscore/HS_Highlight.h"
     #include "Congratulations.h"
+    #include "YouLose.h"
     #include "HighScore.h"
     #include "titlescreen/TitleScreen.h"
 

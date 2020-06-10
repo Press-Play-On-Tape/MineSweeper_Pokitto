@@ -1,5 +1,10 @@
 #pragma once
 
+enum class Stance : uint8_t {
+    Standing,
+    Walking
+};
+
 enum class Tiles : uint8_t {
     Blank,
     Number1,

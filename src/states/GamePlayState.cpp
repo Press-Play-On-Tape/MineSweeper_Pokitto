@@ -8,11 +8,22 @@ using PS = Pokitto::Sound;
 
 
 const bool scroll[] = { false, true, true };
-const uint8_t marginLeft[] = { 0, 0, 0 };
-const uint8_t marginRight[] = { 0, 0, 0 };
-const uint8_t marginTop[] = { 0, 0, 0 };
-const uint8_t marginBottom[] = { 0, 0, 0 };
 
+const uint8_t marginLeft[] =      { 0, 0, 0 };
+const uint8_t marginRight[] =     { 0, 0, 0 };
+const uint8_t marginTop[] =       { 0, 0, 0 };
+const uint8_t marginBottom[] =    { 0, 0, 0 };
+
+const uint8_t xScroll_Left[] =    { 0, 7, 7 };
+const uint8_t xScroll_Right[] =   { 0, 11, 25 };
+const uint8_t yScroll_Top[] =     { 0, 5, 5 };
+const uint8_t yScroll_Bottom[] =  { 0, 12, 12 };
+
+const int8_t shakeXOffset[] =     { -1,  0, 0, 1, 0, 0, 1, -1,  0, -1,  0, 1,  0, -2, 0, 2, 0, 2,  0, -2 };
+const int8_t shakeYOffset[] =     {  0, -1, 0, 0, 1, 0, 0,  1, -1,  0, -1, 0, -1,  0, 2, 0, 2, 0, -2,  0 };
+
+const int8_t soldierX[] =         { -20, -32, -42, -52, -18, -29, -40 };
+const int8_t soldierY[] =         { 30, 38, 26, 32, 70, 72, 66 };
 
 // ----------------------------------------------------------------------------
 //  Initialise state ..
@@ -30,6 +41,23 @@ void GamePlayState::activate(GameContext gameContext) {
     this->gameComplete = false;
     this->time = 0;
     this->bombCount = 0;
+    this->bombExplosion = 0;
+    this->counter = 0;
+
+    for (uint8_t x = 0; x < 7; x++) {
+
+        this->soldiers[x].x = soldierX[x];
+        this->soldiers[x].y = soldierY[x];
+        this->soldiers[x].stance = Stance::Walking;
+
+    }
+
+    for (uint8_t x = 0; x < 4; x++) {
+
+        this->bullets[x].x = -10;
+        this->bullets[x].y = -10;
+
+    }
 
 }
 
@@ -41,20 +69,100 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
 
     bool scrollBoard = scroll[ static_cast<uint8_t>(this->board.getGameMode()) ];
 
-    if (!this->gameOver && Utils::isFrameCount(30) && this->time < 1000) {
+    if (!this->gameOver && Utils::isFrameCount(30) && this->time < 999) {
         this->time++;
     }
 
+    if (this->bombExplosion > 0) {
+        
+        this->bombExplosion--;
+
+        if (this->bombExplosion == 0) {
+
+            this->board.exposeBoard();
+
+        }
+
+    }
+
+    if (this->counter > 0) {
+
+        this->counter--;
+printf("%i \n", counter);
+
+        switch (counter) {
+
+            case 910 ... 999:
+            
+                if (Utils::getFrameCount(4) == 0) {
+
+                    if (this->xOffset > -4) this->xOffset--;
+                    if (this->yOffset > 0)  this->yOffset--;
+                }
+                break;
+                
+            case 865 ... 909:
+
+                for (uint8_t x = 0; x < 7; x++) {
+
+                    this-soldiers[x].x++;
+
+                }
+                break;
+          
+            case 854 ... 864:
+
+                for (uint8_t x = 0; x < 7; x++) {
+
+                    this->soldiers[x].stance = Stance::Standing;
+
+                }
+                break;
+          
+            case 853:
+                this->bullets[0].x = this->soldiers[0].x + 4;
+                this->bullets[0].y = this->soldiers[0].y + 4;
+                break;
+
+            case 836:
+                this->updateBullets;
+                this->bullets[1].x = this->soldiers[4].x + 4;
+                this->bullets[1].y = this->soldiers[4].y + 4;
+                break;
+
+            case 824:
+                this->updateBullets;
+                this->bullets[2].x = this->soldiers[0].x + 4;
+                this->bullets[2].y = this->soldiers[0].y + 4;
+                break;
+
+            case 816:
+                this->updateBullets;
+                this->bullets[3].x = this->soldiers[4].x + 4;
+                this->bullets[3].y = this->soldiers[4].y + 4;
+                break;
+
+            case 837 ... 852:
+            case 825 ... 835:
+            case 817 ... 823:
+                this->updateBullets;
+                break;
+
+            case 856:
+
+                
+        }
+
+    }
     
     this->board.update();
 
 
-    uint16_t xOverlap = board.getOverallWidth() - 220;
-    uint16_t yOverlap = board.getOverallHeight() - 176;
-    uint8_t xOverlapTiles = (xOverlap / this->board.getTileSpacing()) + (xOverlap % this->board.getTileSpacing() != 0 ? 1 : 0);
-    uint8_t yOverlapTiles = (yOverlap / this->board.getTileSpacing()) + (yOverlap % this->board.getTileSpacing() != 0 ? 1 : 0);
-    uint8_t xCentreTile = board.getWidth() / 2;
-    uint8_t yCentreTile = board.getHeight() / 2;
+
+    uint8_t xLeftScroll = xScroll_Left[ static_cast<uint8_t>(gameContext.mode) ];
+    uint8_t xRightScroll = xScroll_Right[ static_cast<uint8_t>(gameContext.mode) ];
+    uint8_t yTopScroll = yScroll_Top[ static_cast<uint8_t>(gameContext.mode) ];
+    uint8_t yBottomScroll = yScroll_Bottom[ static_cast<uint8_t>(gameContext.mode) ];
 
 
     // Handle player actions ..
@@ -63,8 +171,12 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
 
         if (this->board.getCursorX() > 1) this->board.setCursorX(board.getCursorX() - 1);
 
-        if (scrollBoard && this->board.getCursorX() <= xCentreTile && this->xOffset > 0) {
-            this->xOffset--;
+        if (scrollBoard) {
+
+            if (this->board.getCursorX() >= xLeftScroll && this->board.getCursorX() < xRightScroll) {
+                this->xOffset--;
+            }
+
         }
         
     }
@@ -72,9 +184,13 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
     if (PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 3)) {
         
         if (this->board.getCursorX() < this->board.getWidth() - 2) this->board.setCursorX(this->board.getCursorX() + 1);
-        
-        if (scrollBoard && this->board.getCursorX() > xCentreTile && this->xOffset < xOverlapTiles) {
-            this->xOffset++;
+
+        if (scrollBoard) {
+
+            if (this->board.getCursorX() > xLeftScroll && this->board.getCursorX() <= xRightScroll) {
+                this->xOffset++;
+            }
+
         }
 
     }
@@ -83,8 +199,12 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
         
         if (board.getCursorY() > 1) board.setCursorY(board.getCursorY() - 1);
 
-        if (scrollBoard && this->board.getCursorY() <= yCentreTile && this->yOffset > 0) {
-            this->yOffset--;
+        if (scrollBoard) {
+
+            if (this->board.getCursorY() >= yTopScroll && this->board.getCursorY() < yBottomScroll) {
+                this->yOffset--;
+            }
+
         }
         
     }
@@ -93,9 +213,14 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
         
         if (board.getCursorY() < board.getHeight() - 2) board.setCursorY(board.getCursorY() + 1);
         
-        if (scrollBoard && this->board.getCursorY() > yCentreTile && this->yOffset < yOverlapTiles) {
-            this->yOffset++;
-        }        
+        if (scrollBoard) {
+
+            if (this->board.getCursorY() > yTopScroll && this->board.getCursorY() <= yBottomScroll) {
+                this->yOffset++;
+            }
+
+        }
+
     }
 
     if (!this->gameOver) {
@@ -108,8 +233,8 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
 
                 this->xCursor_GameOver = this->board.getCursorX();
                 this->yCursor_GameOver = this->board.getCursorY();
-                this->board.exposeBoard();
                 this->gameOver = true;
+                this->bombExplosion = 29;
 
             }
             else if (this->board.isComplete()) {
@@ -136,6 +261,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
 
                 this->gameComplete = true;
                 this->gameOver = true;
+                this->counter = 1000;
 
             }
             
@@ -168,13 +294,16 @@ void GamePlayState::render() {
 
 void GamePlayState::renderBoard() {
 
+    int8_t shakeX = (this->bombExplosion < 10 ? 0 : shakeXOffset[this->bombExplosion - 10]);
+    int8_t shakeY = (this->bombExplosion < 10 ? 0 : shakeYOffset[this->bombExplosion - 10]);
+
     uint8_t width = this->board.getWidth();
     uint8_t height = this->board.getHeight();
 
-    uint8_t xMarginLeft = marginLeft[ static_cast<uint8_t>(this->board.getGameMode()) ];
-    uint8_t xMarginRight = marginRight[ static_cast<uint8_t>(this->board.getGameMode()) ];
-    uint8_t yMarginTop = marginTop[ static_cast<uint8_t>(this->board.getGameMode()) ];
-    uint8_t yMarginBottom = marginBottom[ static_cast<uint8_t>(this->board.getGameMode()) ];
+    int8_t xMarginLeft =   marginLeft[ static_cast<uint8_t>(this->board.getGameMode()) ] + shakeX;
+    int8_t xMarginRight =  marginRight[ static_cast<uint8_t>(this->board.getGameMode()) ] + shakeY;
+    int8_t yMarginTop =    marginTop[ static_cast<uint8_t>(this->board.getGameMode()) ] + shakeX;
+    int8_t yMarginBottom = marginBottom[ static_cast<uint8_t>(this->board.getGameMode()) ] + shakeY;
     
     uint8_t tileSpacing = this->board.getTileSpacing();
 
@@ -192,9 +321,27 @@ void GamePlayState::renderBoard() {
                     {
                         Tiles tile = board.getTile(x, y);
 
-                        if (this->gameOver && !this->gameComplete && this->xCursor_GameOver == x && this->yCursor_GameOver == y && Utils::getFrameCount(32) >= 16) {
+                        if (this->gameOver && !this->gameComplete && this->xCursor_GameOver == x && this->yCursor_GameOver == y) {
 
-                            PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Blank);                        
+                            if (this->bombExplosion > 0 || (this->bombExplosion == 0 && Utils::getFrameCount(32) >= 16)) {
+
+                                PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Bomb);   
+                                
+                            }
+                            else {
+
+                                PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Blank);   
+                                
+                            }
+
+
+                            if (this->bombExplosion >= 10 && this->bombExplosion <= 25) {
+
+                                uint8_t frame = (25 - this->bombExplosion) / 4;
+                                PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Puff[frame]);   
+
+                            }  
+
 
                         }
                         else {
@@ -234,13 +381,33 @@ void GamePlayState::renderBoard() {
     }
 
 
-    // Draw border.
+    // Draw Soldiers ..
 
-    PD::setColor(0);
-    PD::fillRect(0, 0, 220, yMarginTop);
-    PD::fillRect(0, 176 - yMarginBottom, 220, yMarginBottom);
-    PD::fillRect(0, 0, xMarginLeft, 176);
-    PD::fillRect(220 - xMarginRight, 0, xMarginRight, 176);
+    for (uint8_t x = 0; x < 7; x++) {
+
+        switch (this->soldiers[x].stance) {
+
+            case Stance::Walking:
+                PD::drawBitmap(this->soldiers[x].x, this->soldiers[x].y, Images::Soldiers[Utils::getFrameCount(4) / 2]);
+                break;
+
+            case Stance::Standing:
+                PD::drawBitmap(this->soldiers[x].x, this->soldiers[x].y, Images::Soldiers[0]);
+                break;
+
+        }
+
+    }
+
+    for (uint8_t x = 0; x < 4; x++) {
+
+        if (this->bullets[x].x > 0) {
+
+            PD::drawPixel(this->bullets[x].x, this->bullets[x].y, 0);
+
+        }
+
+    }
 
 
     // Draw counter ..
@@ -257,8 +424,8 @@ void GamePlayState::renderBoard() {
     // Draw bombs ..
 
     PD::setColor(0, 3);
-    PD::fillRect(190, 166, 40, 10);
-    PD::setCursor(192, 168);
+    PD::fillRect(190, 165, 40, 10);
+    PD::setCursor(192, 167);
     PD::setColor(3, 0);
     if (this->bombCount < 100)   { PD::print("0"); }
     if (this->bombCount < 10)    { PD::print("0"); }
@@ -273,17 +440,43 @@ void GamePlayState::renderBoard() {
         
     }
 
+    if (this->gameOver && !this->gameComplete && this->bombExplosion == 0) {
+
+        PD::drawBitmap(40, 70, Images::YouLose);
+        
+    }
+    
+
 }
 
 
 void GamePlayState::renderCursor() {
 
-    uint8_t xMarginLeft = marginLeft[ static_cast<uint8_t>(this->board.getGameMode()) ];
-    uint8_t xMarginRight = marginRight[ static_cast<uint8_t>(this->board.getGameMode()) ];
-    uint8_t yMarginTop = marginTop[ static_cast<uint8_t>(this->board.getGameMode()) ];
-    uint8_t yMarginBottom = marginBottom[ static_cast<uint8_t>(this->board.getGameMode()) ];
-    
-    PD::drawBitmap(xMarginLeft + ((board.getCursorX() - this->xOffset) * this->board.getTileSpacing()) - 1, yMarginTop + ((board.getCursorY() - this->yOffset) * this->board.getTileSpacing()) - 1, Images::Pointer);
+    if (this->bombExplosion == 0) {
+
+        uint8_t xMarginLeft = marginLeft[ static_cast<uint8_t>(this->board.getGameMode()) ];
+        uint8_t xMarginRight = marginRight[ static_cast<uint8_t>(this->board.getGameMode()) ];
+        uint8_t yMarginTop = marginTop[ static_cast<uint8_t>(this->board.getGameMode()) ];
+        uint8_t yMarginBottom = marginBottom[ static_cast<uint8_t>(this->board.getGameMode()) ];
+        
+        PD::drawBitmap(xMarginLeft + ((board.getCursorX() - this->xOffset) * this->board.getTileSpacing()) - 1 + 3, yMarginTop + ((board.getCursorY() - this->yOffset) * this->board.getTileSpacing()) - 1 + 3, Images::Pointer);
+        
+    }
     
 }
 
+void GamePlayState::updateBullets() {
+
+    for (uint8_t x = 0; x < 4; x++) {
+
+        if (this->bullets[x].x > 0) {
+            
+            this->bullets[x].x = this->bullets[x].x + 3;
+
+            if (this->bullets[x].x > 72) this->bullets[x].x = -1;
+
+        }
+
+    }
+
+}

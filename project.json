@@ -1162,6 +1162,99 @@
 		},
 		"\\src\\images\\Congratulations.h": {
 			"sdcard": false
+		},
+		"\\src\\images\\YouLose.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\YouLose.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\MS_Soldier.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\MS_Soldier - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\Soldier_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\Soldier_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puffs.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_04.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\puff\\Puff_04.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\Soldier_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\Soldier_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\Puffs.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\soldiers\\Soldiers.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_R - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_L - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_R_Broken (1).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_R_Broken (2).png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_R_Broken.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_L_Broken.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_R_Broken.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\board\\Fence_L_Broken.h": {
+			"sdcard": false
 		}
 	},
 	"ideVersion": 10000,

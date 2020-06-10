@@ -12,8 +12,6 @@ uint8_t Board::getWidth()                       { return this->width; }
 uint8_t Board::getHeight()                      { return this->height; }
 uint8_t Board::getCursorX()                     { return this->cursorX;}
 uint8_t Board::getCursorY()                     { return this->cursorY;}
-uint16_t Board::getOverallWidth()               { return this->getWidth() * this->getTileSpacing();}
-uint16_t Board::getOverallHeight()              { return this->getHeight() * this->getTileSpacing();}
 GameMode Board::getGameMode()                   { return this->gameMode; }
 
 void Board::setCursorX(uint8_t x)               { this->cursorX = x;}
@@ -34,7 +32,7 @@ uint8_t Board::getBombCount() {
         
         case GameMode::Easy:        return 1; //GAME_MODE_EASY_BOMB_COUNT;
         case GameMode::Medium:      return 1; //GAME_MODE_MEDIUM_BOMB_COUNT;
-        default:                    return GAME_MODE_HARD_BOMB_COUNT;
+        default:                    return 1; // GAME_MODE_HARD_BOMB_COUNT;
             
     }
 

@@ -19,8 +19,6 @@ class Board {
         uint8_t getCursorY();
         uint8_t getWidth();
         uint8_t getHeight();
-        uint16_t getOverallWidth();
-        uint16_t getOverallHeight();
         uint8_t getBombCount();
         GameMode getGameMode();
         uint8_t getTileSize();

@@ -24,7 +24,7 @@ int main() {
     PD::persistence = true;
     PD::setColor(5);
     PD::setInvisibleColor(14);
-    PC::setFrameRate(30);
+    PC::setFrameRate(60);
 
 
 
