@@ -4,6 +4,7 @@
 #include "../entities/Entities.h"
 #include "../utils/Enums.h"
 #include "src/utils/GameCookie.h"
+#include <LibAudio>
 
 class GamePlayState {
 
@@ -26,7 +27,10 @@ class GamePlayState {
 
         bool gameOver;
         bool gameComplete;
-    
+        
+        File mainThemeFile;
+        File soundEffectFile;
+
     public:
 
         void activate(GameContext gameContext);
@@ -38,6 +42,8 @@ class GamePlayState {
         void renderBoard();
         void renderCursor();
         void updateBullets();
+        void playSoundEffect(SoundEffect soundEffect, uint8_t channel);
+
 
 };
 

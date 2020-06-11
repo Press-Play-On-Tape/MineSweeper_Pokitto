@@ -1,5 +1,6 @@
 #include "Pokitto.h"
 #include "PokittoCookie.h"
+#include <LibAudio>
 #include "src/Game.h"
 
 #include "src/entities/Board.h"
@@ -11,6 +12,8 @@ using PD=Pokitto::Display;
 
 Game game;
 GameCookie cookie;
+
+Audio::Sink<4, PROJ_AUD_FREQ> audio;
 
 int main() {
 

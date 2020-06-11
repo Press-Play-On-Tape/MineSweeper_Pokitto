@@ -1897,6 +1897,147 @@
 		},
 		"/MineSweeper_Pokitto.bin.1.gif": {
 			"sdcard": false
+		},
+		"/src/images/highscore/Highscore.png": {
+			"sdcard": false
+		},
+		"/src/images/highscore/Highscore.h": {
+			"sdcard": false
+		},
+		"/MineSweeper_Pokitto.bin.1.png": {
+			"sdcard": false
+		},
+		"/MineSweeper_Pokitto.bin.2.png": {
+			"sdcard": false
+		},
+		"/MineSweeper_Pokitto.bin.2.h": {
+			"sdcard": false
+		},
+		"/MineSweeper_Pokitto.bin.1.h": {
+			"sdcard": false
+		},
+		"/src/images/TimePanel.png": {
+			"sdcard": false
+		},
+		"/src/images/BombPanel.png": {
+			"sdcard": false
+		},
+		"/src/images/BombPanel.h": {
+			"sdcard": false
+		},
+		"/src/images/TimePanel.h": {
+			"sdcard": false
+		},
+		"/src/images/PressA.png": {
+			"sdcard": false
+		},
+		"/src/images/PressA.h": {
+			"sdcard": false
+		},
+		"/MineSweeper_Pokitto.bin.3.png": {
+			"sdcard": false
+		},
+		"/MineSweeper_Pokitto.bin.3.h": {
+			"sdcard": false
+		},
+		"/src/untitled folder": {
+			"sdcard": false
+		},
+		"/src/sounds": {
+			"sdcard": false
+		},
+		"/src/sounds/darkritB - Barrel Exploding.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/mineswe1 - SmallExplosion.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/Blastwave_FX_BankSafeExplosion_HV.37.mp3": {
+			"sdcard": false
+		},
+		"/src/sounds/LargeExplosion.mp3": {
+			"sdcard": false
+		},
+		"/src/sounds/Fanfare.mp3": {
+			"sdcard": false
+		},
+		"/src/sounds/Dig.mp3": {
+			"sdcard": false
+		},
+		"/src/sounds/mineswe2 - LargeExplosion.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/mineswe3 - Dig.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/Flag.mp3": {
+			"sdcard": false
+		},
+		"/src/sounds/mineswe3 - Flag.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/mineswe4 - Flag.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/mineswe5 - Fanfare.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/Bullet.mp3": {
+			"sdcard": false
+		},
+		"/src/sounds/mineswe6 - Bullet.raw": {
+			"sdcard": false
+		},
+		"/untitled folder": {
+			"sdcard": false
+		},
+		"/music": {
+			"sdcard": false
+		},
+		"/music/mineswe1 - SmallExplosion.raw": {
+			"sdcard": false
+		},
+		"/music/mineswe2 - LargeExplosion.raw": {
+			"sdcard": false
+		},
+		"/music/mineswe3 - Dig.raw": {
+			"sdcard": false
+		},
+		"/music/mineswe6 - Bullet.raw": {
+			"sdcard": false
+		},
+		"/music/mineswe5 - Fanfare.raw": {
+			"sdcard": false
+		},
+		"/music/mineswe4 - Flag.raw": {
+			"sdcard": false
+		},
+		"/music/mineswe1.raw": {
+			"sdcard": true
+		},
+		"/music/mineswe2.raw": {
+			"sdcard": true
+		},
+		"/music/mineswe3.raw": {
+			"sdcard": true
+		},
+		"/music/mineswe4.raw": {
+			"sdcard": true
+		},
+		"/music/mineswe5.raw": {
+			"sdcard": true
+		},
+		"/music/mineswe6.raw": {
+			"sdcard": true
+		},
+		"/Archive.zip": {
+			"sdcard": false
+		},
+		"/MineSweeper.zip": {
+			"sdcard": false
+		},
+		"/MineSweeper_ProperLevels.bin": {
+			"sdcard": false
 		}
 	},
 	"ideVersion": 10000,

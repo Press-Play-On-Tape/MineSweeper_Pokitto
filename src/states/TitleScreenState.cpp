@@ -186,17 +186,16 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
 
     if ((this->viewState == ViewState::Normal && this->counter == 0) || (this->viewState == ViewState::StartGame && ((this->counter / 20) % 2) == 1)) {
         
-        PD::setCursor(47, 140);
-        PD::setColor(5, 11);
-        PD::print("Press A to Start");
+        PD::drawBitmap(31, 141, Images::PressA);
         
     }
 
     if (this->viewState == ViewState::LevelChange) {
         
-        PD::setCursor(47, 140);
-        PD::setColor(5, 11);
+        PD::setCursor(53 + (this->gameMode == GameMode::Medium ? 0 : 10), 141);
+        PD::setColor(7, 3);
         PD::print("Level: ");
+        PD::setColor(6, 3);
 
         switch (this->gameMode) {
 
@@ -224,33 +223,33 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
         uint8_t marqueeOffset = this->marquee % 10;
         uint8_t marquee10 = this->marquee / 10;
 
-        PD::setCursor(47 - (this->marquee % 10), 140);
-        PD::setColor(5, 11);
+        PD::setCursor(47 - (this->marquee % 10), 141);
+        PD::setColor(7, 3);
 
         for (uint8_t i = marquee10; i < marquee10 + 16; i++) {
 
             switch (i) {
 
                 case 16 ... 19:
-                    PD::setColor(5, 11);
+                    PD::setColor(7, 3);
                     this->printSingleChar(highScores[i - 16]);
                     break;
 
                 case 21 ... 26:
-                    PD::setColor(5, 11);
+                    PD::setColor(7, 3);
                     this->printSingleChar(highScores[i - 16]);
                     break;
 
                 // Player 0
 
                 case 29 ... 31:
-                    PD::setColor(5, 11);
+                    PD::setColor(7, 3);
                     this->printChar(cookie->initials[mode][0][i - 29]);
                     break;
 
                 case 33 ... 35:
                     {
-                        PD::setColor(8, 11);
+                        PD::setColor(9, 3);
                         uint8_t digits[3] = {};
                         Utils::extractDigits(digits, cookie->score[mode][0]);
                         PD::print(digits[35 - i], 10);
@@ -260,13 +259,13 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
                 // Player 1
 
                 case 37 ... 39:
-                    PD::setColor(5, 11);
+                    PD::setColor(7, 3);
                     this->printChar(cookie->initials[mode][1][i - 37]);
                     break;
 
                 case 41 ... 43:
                     {
-                        PD::setColor(8, 11);
+                        PD::setColor(9, 3);
                         uint8_t digits[3] = {};
                         Utils::extractDigits(digits, cookie->score[mode][1]);
                         PD::print(digits[43 - i], 10);
@@ -276,13 +275,13 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
                 // Player 2
 
                 case 45 ... 47:
-                    PD::setColor(5, 11);
+                    PD::setColor(7, 3);
                     this->printChar(cookie->initials[mode][2][i - 45]);
                     break;
 
                 case 49 ... 51:
                     {
-                        PD::setColor(8, 11);
+                        PD::setColor(9, 3);
                         uint8_t digits[3] = {};
                         Utils::extractDigits(digits, cookie->score[mode][2]);
                         PD::print(digits[51 - i], 10);
@@ -292,13 +291,13 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
                 // Player 3
 
                 case 53 ... 55:
-                    PD::setColor(5, 11);
+                    PD::setColor(7, 3);
                     this->printChar(cookie->initials[mode][3][i - 53]);
                     break;
 
                 case 57 ... 59:
                     {
-                        PD::setColor(8, 11);
+                        PD::setColor(9, 3);
                         uint8_t digits[3] = {};
                         Utils::extractDigits(digits, cookie->score[mode][3]);
                         PD::print(digits[59 - i], 10);
@@ -308,13 +307,13 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
                 // Player 4
 
                 case 61 ... 63:
-                    PD::setColor(5, 11);
+                    PD::setColor(7, 3);
                     this->printChar(cookie->initials[mode][4][i - 61]);
                     break;
 
                 case 65 ... 67:
                     {
-                        PD::setColor(8, 11);
+                        PD::setColor(9, 3);
                         uint8_t digits[3] = {};
                         Utils::extractDigits(digits, cookie->score[mode][4]);
                         PD::print(digits[67 - i], 10);
@@ -322,7 +321,7 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
                     break;                    
 
                 default:
-                    PD::setColor(11, 11);
+                    PD::setColor(3, 3);
                     PD::print('-');
                     break;
 
@@ -331,9 +330,9 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
         }
 
 
-        PD::setColor(11);
-        PD::fillRect(36, 140, 10, 10);
-        PD::fillRect(174, 140, 15, 10);
+        PD::setColor(3);
+        PD::fillRect(36, 141, 10, 10);
+        PD::fillRect(174, 141, 15, 10);
     }
     
 }

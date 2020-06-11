@@ -240,7 +240,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
     if (this->counter > 0) {
 
         this->counter--;
-printf("%i %i \n", counter, idx);
+//printf("%i %i \n", counter, idx);
 
         switch (counter) {
 
@@ -286,24 +286,28 @@ printf("%i %i \n", counter, idx);
             case 853:
                 this->bullets[0].x = this->soldiers[0].x + 9;
                 this->bullets[0].y = this->soldiers[0].y + 7;
+                this->playSoundEffect(SoundEffect::Bullet, 1);
                 break;
 
             case 836:
                 this->updateBullets();
                 this->bullets[1].x = this->soldiers[4].x + 9;
                 this->bullets[1].y = this->soldiers[4].y + 7;
+                this->playSoundEffect(SoundEffect::Bullet, 1);
                 break;
 
             case 824:
                 this->updateBullets();
                 this->bullets[2].x = this->soldiers[0].x + 9;
                 this->bullets[2].y = this->soldiers[0].y + 7;
+                this->playSoundEffect(SoundEffect::Bullet, 1);
                 break;
 
             case 816:
                 this->updateBullets();
                 this->bullets[3].x = this->soldiers[4].x + 9;
                 this->bullets[3].y = this->soldiers[4].y + 7;
+                this->playSoundEffect(SoundEffect::Bullet, 1);
                 break;
 
             case 837 ... 852:
@@ -403,12 +407,20 @@ printf("%i %i \n", counter, idx);
                 this->yCursor_GameOver = this->board.getCursorY();
                 this->gameOver = true;
                 this->bombExplosion = 29;
+                this->playSoundEffect(SoundEffect::LargeExplosion, 1);
 
             }
             else if (this->board.isComplete()) {
 
                 this->gameComplete = true;
                 this->gameOver = true;
+                this->counter = 1000;
+                this->playSoundEffect(SoundEffect::Fanfare, 0);
+
+            }
+            else {
+
+                this->playSoundEffect(SoundEffect::Dig, 1);
 
             }
             
@@ -418,6 +430,7 @@ printf("%i %i \n", counter, idx);
             
             if (board.getState() == Tiles::Tile) {
                 this->bombCount++;
+                this->playSoundEffect(SoundEffect::Flag, 1);
             }
             else if (board.getState() == Tiles::Flag) {
                 this->bombCount--;
@@ -430,6 +443,7 @@ printf("%i %i \n", counter, idx);
                 this->gameComplete = true;
                 this->gameOver = true;
                 this->counter = 1000;
+                this->playSoundEffect(SoundEffect::Fanfare, 0);
 
             }
             
@@ -592,10 +606,9 @@ void GamePlayState::renderBoard() {
 
     // Draw counter ..
 
-    PD::setColor(0, 3);
-    PD::fillRect(190, 0, 40, 10);
+    PD::drawBitmap(178, 0, Images::TimePanel);
     PD::setCursor(192, 2);
-    PD::setColor(3, 0);
+    PD::setColor(7, 0);
     if (this->time < 100)   { PD::print("0"); }
     if (this->time < 10)    { PD::print("0"); }
     PD::print(this->time, 10);    
@@ -603,10 +616,8 @@ void GamePlayState::renderBoard() {
 
     // Draw bombs ..
 
-    PD::setColor(0, 3);
-    PD::fillRect(190, 165, 40, 10);
+    PD::drawBitmap(178, 163, Images::BombPanel);
     PD::setCursor(192, 167);
-    PD::setColor(3, 0);
     if (this->bombCount < 100)   { PD::print("0"); }
     if (this->bombCount < 10)    { PD::print("0"); }
     PD::print(this->bombCount, 10);    
@@ -658,6 +669,8 @@ void GamePlayState::updateBullets() {
 
             if (this->bullets[i].x > 72 && this->bullets[i].x < 76) {
 
+                this->playSoundEffect(SoundEffect::SmallExplosion, 1);
+
                 if (i >= 2) {
 
                     this->puffs[i % 2].x = puffX;
@@ -674,6 +687,32 @@ void GamePlayState::updateBullets() {
             }
 
         }
+
+    }
+
+}
+
+
+void GamePlayState::playSoundEffect(SoundEffect soundEffect, uint8_t channel) {
+
+    char sounds[6][19] = { "music/mineswe1.raw", "music/mineswe2.raw", "music/mineswe3.raw", "music/mineswe4.raw", "music/mineswe5.raw", "music/mineswe6.raw" };
+
+    switch (channel) {
+
+        case 0:
+            if (mainThemeFile.openRO(sounds[ static_cast<uint8_t>(soundEffect) ])) {
+                auto &music = Audio::play<1>(mainThemeFile);
+                music.setLoop(false);
+            } 
+            break;
+
+        case 1:
+            if (soundEffectFile.openRO(sounds[ static_cast<uint8_t>(soundEffect) ])) {
+                auto &music = Audio::play<0>(soundEffectFile);
+                music.setLoop(false);
+            } 
+            break;
+            
 
     }
 

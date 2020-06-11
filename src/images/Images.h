@@ -52,12 +52,15 @@ namespace Images {
     #include "highscore/Char_9.h"
     #include "highscore/Char_Dot.h"
     #include "highscore/Char_Space.h"
+    #include "highscore/Highscore.h"
 
     #include "highscore/HS_Highlight.h"
+    #include "titlescreen/TitleScreen.h"
     #include "Congratulations.h"
     #include "YouLose.h"
-    #include "HighScore.h"
-    #include "titlescreen/TitleScreen.h"
+    #include "BombPanel.h"
+    #include "TimePanel.h"
+    #include "PressA.h"
 
 
 
