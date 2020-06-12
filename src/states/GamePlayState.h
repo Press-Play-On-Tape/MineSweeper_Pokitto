@@ -42,6 +42,7 @@ class GamePlayState {
         void renderBoard();
         void renderCursor();
         void updateBullets();
+        uint16_t updateSoldiers(bool allSoldiers, uint16_t idx);
         void playSoundEffect(SoundEffect soundEffect, uint8_t channel);
 
 

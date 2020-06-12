@@ -27,10 +27,10 @@ void Board::setGameMode(GameMode mode) {
 
 
 uint8_t Board::getBombCount() {
-    
+
     switch (this->gameMode) {
         
-        case GameMode::Easy:        return GAME_MODE_EASY_BOMB_COUNT;
+        case GameMode::Easy:        return 1;//return GAME_MODE_EASY_BOMB_COUNT;
         case GameMode::Medium:      return GAME_MODE_MEDIUM_BOMB_COUNT;
         default:                    return GAME_MODE_HARD_BOMB_COUNT;
             

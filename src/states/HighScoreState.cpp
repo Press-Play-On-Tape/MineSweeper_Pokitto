@@ -175,7 +175,7 @@ void HighScoreState::render(GameContext gameContext, GameCookie *cookie) {
     else {
 
         PD::setColor(11);
-        PD::fillRect(48, 80, 131, 11);
+        PD::fillRect(44, 80, 134, 11);
         PD::drawBitmap(47, 82, Images::Char_T);
         PD::drawBitmap(57, 82, Images::Char_O);
         PD::drawBitmap(67, 82, Images::Char_P);

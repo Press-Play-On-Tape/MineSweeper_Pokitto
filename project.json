@@ -2038,6 +2038,111 @@
 		},
 		"/MineSweeper_ProperLevels.bin": {
 			"sdcard": false
+		},
+		"\\distributable": {
+			"sdcard": false
+		},
+		"\\MineSweeper.zip": {
+			"sdcard": false
+		},
+		"\\music": {
+			"sdcard": false
+		},
+		"\\distributable\\MineSweeper_POPBanner.png": {
+			"sdcard": false
+		},
+		"\\distributable\\MineSweeper_24x24.png": {
+			"sdcard": false
+		},
+		"\\distributable\\MineSweeper_36x36.png": {
+			"sdcard": false
+		},
+		"\\music\\mineswe1.raw": {
+			"sdcard": false
+		},
+		"\\music\\mineswe2.raw": {
+			"sdcard": false
+		},
+		"\\music\\mineswe3.raw": {
+			"sdcard": false
+		},
+		"\\music\\mineswe5.raw": {
+			"sdcard": false
+		},
+		"\\music\\mineswe6.raw": {
+			"sdcard": false
+		},
+		"\\music\\mineswe4.raw": {
+			"sdcard": false
+		},
+		"\\src\\sounds": {
+			"sdcard": false
+		},
+		"\\src\\images\\BombPanel.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\BombPanel.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\PressA.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\PressA.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\TimePanel.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\TimePanel.png": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\Bullet.mp3": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\Dig.mp3": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\Fanfare.mp3": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\Flag.mp3": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\LargeExplosion.mp3": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\mineswe1 - SmallExplosion.raw": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\mineswe2 - LargeExplosion.raw": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\mineswe4 - Flag.raw": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\mineswe3 - Dig.raw": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\mineswe5 - Fanfare.raw": {
+			"sdcard": false
+		},
+		"\\src\\sounds\\mineswe6 - Bullet.raw": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Highscore.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\highscore\\Highscore.png": {
+			"sdcard": false
+		},
+		"\\distributable\\MineSweeper_POPBanner.h": {
+			"sdcard": false
+		},
+		"\\distributable\\MineSweeper_36x36.h": {
+			"sdcard": false
+		},
+		"\\distributable\\MineSweeper_24x24.h": {
+			"sdcard": false
 		}
 	},
 	"ideVersion": 10000,

@@ -22,7 +22,7 @@ const uint8_t yScroll_Bottom[] =    { 0, 12, 12 };
 const int8_t shakeXOffset[] =       { -1,  0, 0, 1, 0, 0, 1, -1,  0, -1,  0, 1,  0, -2, 0, 2, 0, 2,  0, -2 };
 const int8_t shakeYOffset[] =       {  0, -1, 0, 0, 1, 0, 0,  1, -1,  0, -1, 0, -1,  0, 2, 0, 2, 0, -2,  0 };
 
-const int8_t soldierX[] =           { -20, -32, -42, -52, -18, -29, -40 };
+const int8_t soldierX[] =           { -20, -52, -62, -72, -18, -39, -60 };
 const uint8_t soldierY[7][272] =    {
                                     { 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, // 16
                                       30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 31, 32, 32, 32, 32, // 32
@@ -42,13 +42,13 @@ const uint8_t soldierY[7][272] =    {
                                       31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 256
                                       31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 272
                                        },
-                                    { 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 16
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 32
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 48
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 64
-                                      38, 38, 38, 38, 38, 37, 37, 37, 37, 36, 36, 36, 36, 35, 35, 35, // 80
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 96
-                                      32, 32, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 36, // 112
+                                    { 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 16
+                                      45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 32
+                                      45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 48
+                                      45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 64
+                                      45, 45, 45, 45, 45, 44, 44, 44, 44, 43, 43, 43, 42, 42, 42, 41, // 80
+                                      41, 41, 40, 40, 40, 39, 39, 39, 38, 38, 38, 37, 37, 37, 36, 36, // 96
+                                      36, 35, 35, 35, 34, 34, 34, 33, 33, 33, 32, 32, 32, 32, 32, 32, // 112
                                       36, 36, 37, 37, 37, 37, 37, 37, 37, 37, 38, 38, 38, 38, 38, 38, // 128
                                       38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 144
                                       38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 160
@@ -240,7 +240,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
     if (this->counter > 0) {
 
         this->counter--;
-//printf("%i %i \n", counter, idx);
+printf("%i %i \n", counter, idx);
 
         switch (counter) {
 
@@ -258,14 +258,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
             case 865 ... 909:
             case 560 ... 799:
 
-                for (uint8_t i = 0; i < 7; i++) {
-
-                    this->soldiers[i].x++;
-                    this->soldiers[i].y = soldierY[i][idx];
-                    this->soldiers[i].stance = Stance::Walking;
-
-                }
-                idx++;
+                idx = updateSoldiers(true, idx);
                 break;
 
             case 559:
@@ -276,17 +269,22 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
           
             case 854 ... 864:
 
-                for (uint8_t i = 0; i < 7; i++) {
+                //for (uint8_t i = 0; i < 7; i++) {
 
-                    this->soldiers[i].stance = Stance::Standing;
+                    //this->soldiers[i].stance = Stance::Standing;
 
-                }
+                //}
+                this->soldiers[0].stance = Stance::Standing;
+                this->soldiers[4].stance = Stance::Standing;
+
+                idx = updateSoldiers(false, idx);
                 break;
           
             case 853:
                 this->bullets[0].x = this->soldiers[0].x + 9;
                 this->bullets[0].y = this->soldiers[0].y + 7;
                 this->playSoundEffect(SoundEffect::Bullet, 1);
+                idx = updateSoldiers(false, idx);
                 break;
 
             case 836:
@@ -294,6 +292,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
                 this->bullets[1].x = this->soldiers[4].x + 9;
                 this->bullets[1].y = this->soldiers[4].y + 7;
                 this->playSoundEffect(SoundEffect::Bullet, 1);
+                idx = updateSoldiers(false, idx);
                 break;
 
             case 824:
@@ -301,6 +300,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
                 this->bullets[2].x = this->soldiers[0].x + 9;
                 this->bullets[2].y = this->soldiers[0].y + 7;
                 this->playSoundEffect(SoundEffect::Bullet, 1);
+                idx = updateSoldiers(false, idx);
                 break;
 
             case 816:
@@ -308,6 +308,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
                 this->bullets[3].x = this->soldiers[4].x + 9;
                 this->bullets[3].y = this->soldiers[4].y + 7;
                 this->playSoundEffect(SoundEffect::Bullet, 1);
+                idx = updateSoldiers(false, idx);
                 break;
 
             case 837 ... 852:
@@ -315,6 +316,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
             case 817 ... 823:
             case 800 ... 815:
                 this->updateBullets();
+                idx = updateSoldiers(false, idx);
                 break;
 
 
@@ -607,7 +609,7 @@ void GamePlayState::renderBoard() {
     // Draw counter ..
 
     PD::drawBitmap(178, 0, Images::TimePanel);
-    PD::setCursor(192, 2);
+    PD::setCursor(193, 2);
     PD::setColor(7, 0);
     if (this->time < 100)   { PD::print("0"); }
     if (this->time < 10)    { PD::print("0"); }
@@ -617,7 +619,7 @@ void GamePlayState::renderBoard() {
     // Draw bombs ..
 
     PD::drawBitmap(178, 163, Images::BombPanel);
-    PD::setCursor(192, 167);
+    PD::setCursor(193, 167);
     if (this->bombCount < 100)   { PD::print("0"); }
     if (this->bombCount < 10)    { PD::print("0"); }
     PD::print(this->bombCount, 10);    
@@ -692,6 +694,21 @@ void GamePlayState::updateBullets() {
 
 }
 
+uint16_t GamePlayState::updateSoldiers(bool allSoldiers, uint16_t idx) {
+
+    for (uint8_t i = 0; i < 7; i++) {
+
+        if (allSoldiers || (i != 0 && i != 4)) {
+            this->soldiers[i].x++;
+            this->soldiers[i].y = soldierY[i][idx];
+            this->soldiers[i].stance = Stance::Walking;
+        }
+
+    }
+
+    return ++idx;
+
+}
 
 void GamePlayState::playSoundEffect(SoundEffect soundEffect, uint8_t channel) {
 
