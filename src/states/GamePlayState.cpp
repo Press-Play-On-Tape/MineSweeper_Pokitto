@@ -22,133 +22,73 @@ const uint8_t yScroll_Bottom[] =    { 0, 12, 12 };
 const int8_t shakeXOffset[] =       { -1,  0, 0, 1, 0, 0, 1, -1,  0, -1,  0, 1,  0, -2, 0, 2, 0, 2,  0, -2 };
 const int8_t shakeYOffset[] =       {  0, -1, 0, 0, 1, 0, 0,  1, -1,  0, -1, 0, -1,  0, 2, 0, 2, 0, -2,  0 };
 
-const int8_t soldierX[] =           { -20, -52, -62, -72, -18, -39, -60 };
-const uint8_t soldierY[7][272] =    {
-                                    { 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, // 16
-                                      30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 31, 32, 32, 32, 32, // 32
-                                      31, 31, 31, 30, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, // 48
-                                      31, 31, 31, 30, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, // 64
-                                      31, 31, 31, 30, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, // 80
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 96
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 112
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 128
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 144
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 160
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 176
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 192
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 208
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 224
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 240
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 256
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 31, 31, 31, // 272
+const int8_t soldierX[] =           { -20, -56, -69, -106, -20, -56, -69, -106 };
+const uint8_t soldierY[3][336] =    {
+                                    { 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, // 16
+                                      48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, // 32
+                                      48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, // 48
+                                      48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, // 64
+                                      48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, // 80
+                                      48, 48, 48, 48, 48, 47, 47, 46, 46, 45, 45, 44, 44, 43, 43, 42, // 96
+                                      42, 41, 41, 40, 40, 39, 39, 38, 38, 37, 37, 36, 36, 35, 35, 34, // 112
+                                      34, 33, 33, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 128
+                                      33, 33, 33, 34, 34, 34, 35, 35, 35, 36, 36, 36, 37, 37, 37, 38, // 144
+                                      38, 38, 39, 39, 39, 40, 40, 40, 41, 41, 41, 42, 42, 42, 43, 43, // 160
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 176
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 192
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 208
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 224
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 240
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 256
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 272
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 288
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 304
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 320
+                                      43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, // 336
                                        },
-                                    { 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 16
-                                      45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 32
-                                      45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 48
-                                      45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, // 64
-                                      45, 45, 45, 45, 45, 44, 44, 44, 44, 43, 43, 43, 42, 42, 42, 41, // 80
-                                      41, 41, 40, 40, 40, 39, 39, 39, 38, 38, 38, 37, 37, 37, 36, 36, // 96
-                                      36, 35, 35, 35, 34, 34, 34, 33, 33, 33, 32, 32, 32, 32, 32, 32, // 112
-                                      36, 36, 37, 37, 37, 37, 37, 37, 37, 37, 38, 38, 38, 38, 38, 38, // 128
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 144
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 160
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 176
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 192
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 208
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 224
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 240
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 256
-                                      38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, // 272
+                                    { 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 16
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 32
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 48
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 64
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 80
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, // 96
+                                      19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, // 112
+                                      27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32, 32, 32, 32, 32, // 128
+                                      32, 32, 32, 32, 31, 31, 30, 30, 29, 29, 28, 28, 27, 27, 26, 26, // 144
+                                      25, 25, 24, 24, 23, 23, 22, 22, 21, 21, 20, 20, 19, 19, 18, 18, // 160
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 176
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 192
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 178
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 224
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 240
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 256
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 272
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 288
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 304
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 320
+                                      17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, // 336
                                        },
-                                    { 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 16
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 32
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 48
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 64
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 27, 27, // 80
-                                      27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 29, 30, 30, 30, 30, 31, // 96
-                                      31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 112
-                                      32, 32, 31, 31, 31, 30, 30, 30, 29, 29, 29, 28, 28, 28, 27, 27, // 128
-                                      27, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 144
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 160
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 176
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 192
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 208
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 224
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 240
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 256
-                                      26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, // 272
-                                       },
-                                    { 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 16
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 32
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 48
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 64
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 80
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 96
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 112
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 128
+                                    { 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 16
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 28
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 48
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 64
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 80
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 96
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 112
+                                      28, 28, 28, 28, 28, 28, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32, // 128
                                       32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 144
                                       32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 160
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 176
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 192
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 208
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 224
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 240
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 256
-                                      32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, // 272
-                                       },
-                                    { 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 16
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 32
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 48
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 125, 125, // 64
-                                      125, 125, 124, 124, 124, 124, 124, 124, 124, 124, 125, 125, 125, 125, 126, 126, // 80
-                                      126, 126, 127, 127, 127, 128, 128, 128, 128, 128, 128, 128, 128, 127, 127, 127, // 96
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 112
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 128
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 144
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 160
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 176
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 192
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 208
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 224
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 240
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 256
-                                      126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, // 272
-                                       },
-                                    { 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 16
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 32
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 48
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 64
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 80
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 129, 129, 129, 129, 130, 130, // 96
-                                      130, 130, 130, 130, 130, 130, 130, 130, 129, 129, 129, 129, 129, 128, 128, 128, // 112
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 128
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 144
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 160
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 176
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 192
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 208
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 224
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 240
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 256
-                                      128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, // 272
-                                       },
-                                    { 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 16
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 32
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 48
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 64
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 80
-                                      122, 122, 122, 122, 122, 122, 123, 123, 123, 123, 124, 124, 124, 124, 125, 125, // 96
-                                      125, 125, 126, 126, 126, 126, 127, 127, 127, 127, 128, 128, 128, 128, 128, 128, // 112
-                                      128, 128, 128, 127, 127, 127, 127, 126, 126, 126, 126, 125, 125, 125, 125, 124, // 128
-                                      124, 124, 124, 123, 123, 123, 123, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 144
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 160
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 176
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 192
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 208
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 224
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 240
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 256
-                                      122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, 122, // 272
+                                      31, 31, 30, 30, 29, 29, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 176
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 192
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 224
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 240
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 256
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 256
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 272
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 288
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 304
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 320
+                                      28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, // 336
                                        }
                                     };
 
@@ -173,10 +113,10 @@ void GamePlayState::activate(GameContext gameContext) {
     this->counter = 0;
     this->idx = 0;
 
-    for (uint8_t i = 0; i < 7; i++) {
+    for (uint8_t i = 0; i < 8; i++) {
 
         this->soldiers[i].x = soldierX[i];
-        this->soldiers[i].y = soldierY[i][0];
+        this->soldiers[i].y = 0;
         this->soldiers[i].stance = Stance::Walking;
 
     }
@@ -185,6 +125,12 @@ void GamePlayState::activate(GameContext gameContext) {
 
         this->bullets[i].x = -10;
         this->bullets[i].y = -10;
+
+    }
+
+    for (uint8_t i = 0; i < 2; i++) {
+        
+        this->puffs[i].counter = 0;
 
     }
 
@@ -240,43 +186,64 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
     if (this->counter > 0) {
 
         this->counter--;
-printf("%i %i \n", counter, idx);
 
         switch (counter) {
 
             case 910 ... 999:
             
-                if (Utils::getFrameCount(4) == 0) {
+                if (this->scroll_distance < (this->scroll_increment * this->scroll_fastest)) {
 
-                    if (this->xOffset > -4) this->xOffset--;
-                    if (this->yOffset > 0)  this->yOffset--;
+                    this->scroll_count++;
+
+                    if (this->scroll_count >= scroll_increment) {
+
+                        this->scroll_count = 0;
+                        this->scroll_speed++;
+
+                    }
+
                 }
+                else if (this->scroll_distance >= scroll_overall - (this->scroll_fastest * (1 + this->scroll_increment))) {
+
+                    this->scroll_count++;
+
+                    if (this->scroll_count >= this->scroll_increment) {
+
+                        this->scroll_count = 0;
+                        if (this->scroll_speed > 1) this->scroll_speed--;
+
+                    }
+
+                }
+                else {
+
+                    this->scroll_count = 0;
+
+                }
+
+                if (this->xOffset > -this->board.getTileSpacing() * 4)  this->xOffset = this->xOffset - scroll_speed;
+                if (this->yOffset > 0)                                  this->yOffset = this->yOffset - scroll_speed;
                 
-                if (this->xOffset == -4 && this->yOffset == 0) this->counter = 910;
+                if ((this->xOffset <= -this->board.getTileSpacing() * 4) && this->yOffset <= 0) this->counter = 910;
+
+                this->scroll_distance  =this->scroll_distance + scroll_speed;
+
                 break;
                 
             case 865 ... 909:
-            case 560 ... 799:
-
+            case 585 ... 799:
                 idx = updateSoldiers(true, idx);
                 break;
 
-            case 559:
+            case 584: 
                 gameContext.gameComplete = this->gameComplete;
                 gameContext.time = this->time;
                 gameContext.currentState = GameState::HighScore_Activate;
                 break;
           
             case 854 ... 864:
-
-                //for (uint8_t i = 0; i < 7; i++) {
-
-                    //this->soldiers[i].stance = Stance::Standing;
-
-                //}
                 this->soldiers[0].stance = Stance::Standing;
                 this->soldiers[4].stance = Stance::Standing;
-
                 idx = updateSoldiers(false, idx);
                 break;
           
@@ -295,7 +262,7 @@ printf("%i %i \n", counter, idx);
                 idx = updateSoldiers(false, idx);
                 break;
 
-            case 824:
+            case 830:
                 this->updateBullets();
                 this->bullets[2].x = this->soldiers[0].x + 9;
                 this->bullets[2].y = this->soldiers[0].y + 7;
@@ -303,7 +270,7 @@ printf("%i %i \n", counter, idx);
                 idx = updateSoldiers(false, idx);
                 break;
 
-            case 816:
+            case 820:
                 this->updateBullets();
                 this->bullets[3].x = this->soldiers[4].x + 9;
                 this->bullets[3].y = this->soldiers[4].y + 7;
@@ -312,9 +279,9 @@ printf("%i %i \n", counter, idx);
                 break;
 
             case 837 ... 852:
-            case 825 ... 835:
-            case 817 ... 823:
-            case 800 ... 815:
+            case 831 ... 835:
+            case 821 ... 829:
+            case 800 ... 819:
                 this->updateBullets();
                 idx = updateSoldiers(false, idx);
                 break;
@@ -326,7 +293,6 @@ printf("%i %i \n", counter, idx);
     }
     
     this->board.update();
-
 
 
     uint8_t xLeftScroll = xScroll_Left[ static_cast<uint8_t>(gameContext.mode) ];
@@ -346,7 +312,7 @@ printf("%i %i \n", counter, idx);
             if (scrollBoard) {
 
                 if (this->board.getCursorX() >= xLeftScroll && this->board.getCursorX() < xRightScroll) {
-                    this->xOffset--;
+                    this->xOffset = this->xOffset - this->board.getTileSpacing();
                 }
 
             }
@@ -360,7 +326,7 @@ printf("%i %i \n", counter, idx);
             if (scrollBoard) {
 
                 if (this->board.getCursorX() > xLeftScroll && this->board.getCursorX() <= xRightScroll) {
-                    this->xOffset++;
+                    this->xOffset = this->xOffset + this->board.getTileSpacing();
                 }
 
             }
@@ -374,7 +340,7 @@ printf("%i %i \n", counter, idx);
             if (scrollBoard) {
 
                 if (this->board.getCursorY() >= yTopScroll && this->board.getCursorY() < yBottomScroll) {
-                    this->yOffset--;
+                    this->yOffset = this->yOffset - this->board.getTileSpacing();
                 }
 
             }
@@ -388,7 +354,7 @@ printf("%i %i \n", counter, idx);
             if (scrollBoard) {
 
                 if (this->board.getCursorY() > yTopScroll && this->board.getCursorY() <= yBottomScroll) {
-                    this->yOffset++;
+                    this->yOffset = this->yOffset + this->board.getTileSpacing();
                 }
 
             }
@@ -416,7 +382,7 @@ printf("%i %i \n", counter, idx);
 
                 this->gameComplete = true;
                 this->gameOver = true;
-                this->counter = 1000;
+                this->startScroll();
                 this->playSoundEffect(SoundEffect::Fanfare, 0);
 
             }
@@ -444,7 +410,7 @@ printf("%i %i \n", counter, idx);
 
                 this->gameComplete = true;
                 this->gameOver = true;
-                this->counter = 1000;
+                this->startScroll();
                 this->playSoundEffect(SoundEffect::Fanfare, 0);
 
             }
@@ -509,12 +475,12 @@ void GamePlayState::renderBoard() {
 
                             if (this->bombExplosion > 0 || (this->bombExplosion == 0 && Utils::getFrameCount(32) >= 16)) {
 
-                                PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Bomb);   
+                                PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::Bomb);   
                                 
                             }
                             else {
 
-                                PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Blank);   
+                                PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::Blank);   
                                 
                             }
 
@@ -522,7 +488,7 @@ void GamePlayState::renderBoard() {
                             if (this->bombExplosion >= 10 && this->bombExplosion <= 25) {
 
                                 uint8_t frame = (25 - this->bombExplosion) / 4;
-                                PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Puff[frame]);   
+                                PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::Puff[frame]);   
 
                             }  
 
@@ -530,30 +496,30 @@ void GamePlayState::renderBoard() {
                         }
                         else {
 
-                            PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Tiles[ static_cast<uint8_t>(tile) ]);                        
+                            PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::Tiles[ static_cast<uint8_t>(tile) ]);                        
 
                         }
                     }
                     break;
                     
                 case Tiles::QuestionMark:
-                    PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::QuestionMark);
+                    PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::QuestionMark);
                     break;
                     
                 case Tiles::Tile:
 
                     if ((x + (y %2 )) % 2 == 0) {
-                        PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Tile);
+                        PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::Tile);
                     }
                     else {
-                        PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Tile_Rev);
+                        PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::Tile_Rev);
                     }
                     break;
 
                 case Tiles::Flag:
                     {
                         uint8_t frame = Utils::getFrameCount(24) / 5;
-                        PD::drawBitmap(xMarginLeft + (x - this->xOffset) * tileSpacing, yMarginTop + (y - this->yOffset) * tileSpacing, Images::Flags[frame]);
+                        PD::drawBitmap((xMarginLeft + (x * tileSpacing)) - this->xOffset, (yMarginTop + (y * tileSpacing)) - this->yOffset, Images::Flags[frame]);
                     }
                     break;
                     
@@ -567,7 +533,7 @@ void GamePlayState::renderBoard() {
 
     // Draw Soldiers ..
 
-    for (uint8_t i = 0; i < 7; i++) {
+    for (uint8_t i = 0; i < 8; i++) {
 
         switch (this->soldiers[i].stance) {
 
@@ -646,13 +612,12 @@ void GamePlayState::renderBoard() {
 void GamePlayState::renderCursor() {
 
     if (this->bombExplosion == 0 && this->counter == 0) {
-
+    
+        uint8_t tileSpacing = this->board.getTileSpacing();
         uint8_t xMarginLeft = marginLeft[ static_cast<uint8_t>(this->board.getGameMode()) ];
-        uint8_t xMarginRight = marginRight[ static_cast<uint8_t>(this->board.getGameMode()) ];
         uint8_t yMarginTop = marginTop[ static_cast<uint8_t>(this->board.getGameMode()) ];
-        uint8_t yMarginBottom = marginBottom[ static_cast<uint8_t>(this->board.getGameMode()) ];
         
-        PD::drawBitmap(xMarginLeft + ((board.getCursorX() - this->xOffset) * this->board.getTileSpacing()) - 1 + 3, yMarginTop + ((board.getCursorY() - this->yOffset) * this->board.getTileSpacing()) - 1 + 3, Images::Pointer);
+        PD::drawBitmap(xMarginLeft + (this->board.getCursorX() * tileSpacing) - this->xOffset + 2, yMarginTop + (this->board.getCursorY() * tileSpacing) - this->yOffset + 2, Images::Pointer);
         
     }
     
@@ -696,12 +661,38 @@ void GamePlayState::updateBullets() {
 
 uint16_t GamePlayState::updateSoldiers(bool allSoldiers, uint16_t idx) {
 
-    for (uint8_t i = 0; i < 7; i++) {
+    for (uint8_t i = 0; i < 8; i++) {
 
         if (allSoldiers || (i != 0 && i != 4)) {
-            this->soldiers[i].x++;
-            this->soldiers[i].y = soldierY[i][idx];
-            this->soldiers[i].stance = Stance::Walking;
+
+            switch (i) {
+
+                case 0:
+                    this->soldiers[i].x++;
+                    this->soldiers[i].y = 32;
+                    this->soldiers[i].stance = Stance::Walking;
+                    break;
+
+                case 1 ... 3:
+                    this->soldiers[i].x++;
+                    this->soldiers[i].y = soldierY[i - 1][idx];
+                    this->soldiers[i].stance = Stance::Walking;
+                    break;
+
+                case 4:
+                    this->soldiers[i].x++;
+                    this->soldiers[i].y = 128;
+                    this->soldiers[i].stance = Stance::Walking;
+                    break;
+
+                case 5 ... 7:
+                    this->soldiers[i].x++;
+                    this->soldiers[i].y = (128 + 32) - soldierY[i - 5][idx];
+                    this->soldiers[i].stance = Stance::Walking;
+                    break;
+
+            }
+
         }
 
     }
@@ -732,5 +723,47 @@ void GamePlayState::playSoundEffect(SoundEffect soundEffect, uint8_t channel) {
             
 
     }
+
+}
+
+void GamePlayState::startScroll() {
+
+    this->counter = 1000;
+
+    this->scroll_overall = this->xOffset + (4* this->board.getTileSpacing());
+    this->scroll_speed = 1;
+    this->scroll_count = 0;
+    this->scroll_distance = 0;
+
+    switch (scroll_overall) {
+
+        case 0 ... 64:
+            this->scroll_increment = 4;
+            this->scroll_fastest = 4;
+            break;
+
+        case 65 ... 100:
+            this->scroll_increment = 8;
+            this->scroll_fastest = 4;
+            break;
+
+        case 101 ... 200:
+            this->scroll_increment = 6;
+            this->scroll_fastest = 8;
+            break;
+
+        case 201 ... 400:
+            this->scroll_increment = 4;
+            this->scroll_fastest = 8;
+            break;
+
+        default:
+            this->scroll_increment = 4;
+            this->scroll_fastest = 8;
+            break;
+
+    }
+    
+    printf("overall %i, inc %i, fastest %i, slow %i\n", this->scroll_overall, this->scroll_increment, this->scroll_fastest, scroll_overall - ((this->scroll_fastest - 1) * this->scroll_increment));
 
 }

@@ -9,7 +9,8 @@ using PS = Pokitto::Sound;
 
 constexpr const static uint8_t UPLOAD_DELAY = 16;
 
-
+const uint8_t soldierX[] =           { 60, 76, 99, 126, 70, 92, 119, 151 };
+const uint8_t soldierY[] =           { 12, 18, 4, 8, 158, 162, 154, 160 };
 
 
 // ----------------------------------------------------------------------------
@@ -21,7 +22,19 @@ void TitleScreenState::activate(GameContext gameContext, GameCookie *cookie) {
     this->stateToggle = 150;
     this->viewState = ViewState::Normal;
     this->gameMode = cookie->gameMode;
+
+    if (mainThemeFile.openRO("music/mineswe7.raw")) {
+        auto &music = Audio::play<1>(mainThemeFile);
+        music.setLoop(false);
+    } 
     
+    for (uint8_t i = 0; i < 8; i++) {
+
+        this->soldiers[i].x = -soldierX[i];
+        this->soldiers[i].y = soldierY[i];
+                
+    }
+
 }
 
 
@@ -48,6 +61,11 @@ GameContext TitleScreenState::update(GameContext gameContext, GameCookie *cookie
         
     }
  
+    for (uint8_t i = 0; i < 8; i++) {
+
+        this->soldiers[i].x++;
+                
+    }
 
 
     // Update highlight ..
@@ -334,7 +352,14 @@ void TitleScreenState::render(GameContext gameContext, GameCookie *cookie) {
         PD::fillRect(36, 141, 10, 10);
         PD::fillRect(174, 141, 15, 10);
     }
-    
+
+
+    for (uint8_t i = 0; i < 8; i++) {
+
+        PD::drawBitmap(this->soldiers[i].x, this->soldiers[i].y, Images::Soldiers[Utils::getFrameCount(4) / 2]);
+
+    }
+
 }
 
 

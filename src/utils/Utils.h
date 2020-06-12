@@ -17,21 +17,6 @@ struct Rect {
 };
 
 namespace Utils {
-
-    static inline bool sfxOver() {
-
-        return ( PS::sfxDataPtr >= PS::sfxEndPtr );
-
-    }
-    
-    static inline void printffloat(float d) {
-        
-        int a = static_cast<int>(d);
-        int b = static_cast<int>((d * 1000)) % 1000;
-        
-        printf("%i.%i", a, b);
-        
-    }
         
     static inline bool collide(Rect rect1, Rect rect2) {
         return !(rect2.x                >= rect1.x + rect1.width  ||
