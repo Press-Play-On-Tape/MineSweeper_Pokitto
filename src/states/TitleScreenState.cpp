@@ -9,7 +9,7 @@ using PS = Pokitto::Sound;
 
 constexpr const static uint8_t UPLOAD_DELAY = 16;
 
-const uint8_t soldierX[] =           { 60, 76, 99, 126, 70, 92, 119, 151 };
+const uint8_t soldierX[] =           { 40, 56, 79, 106, 50, 72, 99, 131 };
 const uint8_t soldierY[] =           { 12, 18, 4, 8, 158, 162, 154, 160 };
 
 
@@ -64,9 +64,20 @@ GameContext TitleScreenState::update(GameContext gameContext, GameCookie *cookie
     for (uint8_t i = 0; i < 8; i++) {
 
         this->soldiers[i].x++;
-                
+           
     }
 
+    if (this->soldiers[0].x > 350) {
+   
+        for (uint8_t i = 0; i < 8; i++) {
+
+            this->soldiers[i].x = -soldierX[i];
+            this->soldiers[i].y = soldierY[i];
+                    
+        }            
+        
+    }
+     
 
     // Update highlight ..
     

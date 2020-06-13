@@ -9,7 +9,7 @@ using PS = Pokitto::Sound;
 
 const bool scroll[] = { false, true, true };
 
-const uint8_t marginLeft[] =        { 0, 0, 0 };
+const uint8_t marginLeft[] =        { 22, 0, 0 };
 const uint8_t marginRight[] =       { 0, 0, 0 };
 const uint8_t marginTop[] =         { 0, 0, 0 };
 const uint8_t marginBottom[] =      { 0, 0, 0 };
@@ -221,7 +221,7 @@ GameContext GamePlayState::update(GameContext gameContext, GameCookie *cookie) {
 
                 }
 
-                if (this->xOffset > -this->board.getTileSpacing() * 4)  this->xOffset = this->xOffset - scroll_speed;
+                if (this->xOffset > (-this->board.getTileSpacing() * 4) + marginLeft[static_cast<uint8_t>(this->board.getGameMode())])  this->xOffset = this->xOffset - scroll_speed;
                 if (this->yOffset > 0)                                  this->yOffset = this->yOffset - scroll_speed;
                 
                 if ((this->xOffset <= -this->board.getTileSpacing() * 4) && this->yOffset <= 0) this->counter = 910;
@@ -730,7 +730,7 @@ void GamePlayState::startScroll() {
 
     this->counter = 1000;
 
-    this->scroll_overall = this->xOffset + (4* this->board.getTileSpacing());
+    this->scroll_overall = this->xOffset + (4* this->board.getTileSpacing()) - marginLeft[static_cast<uint8_t>(this->board.getGameMode())];
     this->scroll_speed = 1;
     this->scroll_count = 0;
     this->scroll_distance = 0;
@@ -763,7 +763,5 @@ void GamePlayState::startScroll() {
             break;
 
     }
-    
-    printf("overall %i, inc %i, fastest %i, slow %i\n", this->scroll_overall, this->scroll_increment, this->scroll_fastest, scroll_overall - ((this->scroll_fastest - 1) * this->scroll_increment));
 
 }

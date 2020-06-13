@@ -42,7 +42,6 @@ int main() {
 
     // Play game!
 
-    srand(3);
     game.setup(&cookie);
 
     while (PC::isRunning()) {

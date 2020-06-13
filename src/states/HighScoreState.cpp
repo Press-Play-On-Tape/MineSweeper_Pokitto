@@ -117,94 +117,45 @@ void HighScoreState::render(GameContext gameContext, GameCookie *cookie) {
 
 
     // Has a new High Score been set ?
-        
+
+    PD::setColor(11);
+
     if (index != NO_SCORE) {
     
         PD::setColor(11);
-        PD::fillRect(18, 80, 184, 11);
-        PD::drawBitmap(21, 82, Images::Char_E);
-        PD::drawBitmap(31, 82, Images::Char_N);
-        PD::drawBitmap(41, 82, Images::Char_T);
-        PD::drawBitmap(51, 82, Images::Char_E);
-        PD::drawBitmap(61, 82, Images::Char_R);
-
-        PD::drawBitmap(76, 82, Images::Char_Y);
-        PD::drawBitmap(86, 82, Images::Char_O);
-        PD::drawBitmap(96, 82, Images::Char_U);
-        PD::drawBitmap(106, 82, Images::Char_R);
-
-        PD::drawBitmap(121, 82, Images::Char_I);
-        PD::drawBitmap(131, 82, Images::Char_N);
-        PD::drawBitmap(141, 82, Images::Char_I);
-        PD::drawBitmap(151, 82, Images::Char_T);
-        PD::drawBitmap(161, 82, Images::Char_I);
-        PD::drawBitmap(171, 82, Images::Char_A);
-        PD::drawBitmap(181, 82, Images::Char_L);
-        PD::drawBitmap(191, 82, Images::Char_S);
-
         uint8_t digits[8] = {};
         Utils::extractDigits(digits, cookie->lastScore);
 
 
         // Render Highlights ..
         
-        PD::drawBitmap(38, 115 + (index * 11), Images::HS_Highlight);
-        PD::drawBitmap(180, 115 + (index * 11), Images::HS_Highlight);
+        PD::drawBitmap(113, 104 + (index * 11), Images::HS_Highlight);
+        PD::drawBitmap(204, 104 + (index * 11), Images::HS_Highlight);
 
 
 
         // Render score and name entry ..
-        
-        for (uint8_t j = 3; j > 0; --j) {
-        
-            PD::drawBitmap(78 - (j * 10), 115 + (index * 11), Images::HS_Font[digits[j - 1] + 27]);
-        
-        }
 
         for (uint32_t x = 0; x < 3; x++) {
             
             if ((this->cursor == x && flash) || this->cursor != x) {
             
-                PD::drawBitmap(144 + (x * 10), 115 + (index * 11), Images::HS_Font[cookie->initials[mode][index][x]]);
+                PD::drawBitmap(122 + (x * 10), 104 + (index * 11), Images::HS_Font[cookie->initials[mode][index][x]]);
                 
             }
 
         }
-
-    }
-    else {
-
-        PD::setColor(11);
-        PD::fillRect(44, 80, 134, 11);
-        PD::drawBitmap(47, 82, Images::Char_T);
-        PD::drawBitmap(57, 82, Images::Char_O);
-        PD::drawBitmap(67, 82, Images::Char_P);
-        PD::drawBitmap(82, 82, Images::Char_F);
-        PD::drawBitmap(92, 82, Images::Char_I);
-        PD::drawBitmap(102, 82, Images::Char_V);
-        PD::drawBitmap(112, 82, Images::Char_E);
-
-        PD::drawBitmap(127, 82, Images::Char_T);
-        PD::drawBitmap(137, 82, Images::Char_I);
-        PD::drawBitmap(147, 82, Images::Char_M);
-        PD::drawBitmap(157, 82, Images::Char_E);
-        PD::drawBitmap(167, 82, Images::Char_S);
-
-    }
         
+        for (uint8_t j = 3; j > 0; --j) {
+        
+            PD::drawBitmap(200 - (j * 10), 104 + (index * 11), Images::HS_Font[digits[j - 1] + 27]);
+        
+        }
+
+    }
 
 
     // Render remaining scores ..
-    
-    PD::drawBitmap(43, 102, Images::Char_T);
-    PD::drawBitmap(53, 102, Images::Char_I);
-    PD::drawBitmap(63, 102, Images::Char_M);
-    PD::drawBitmap(73, 102, Images::Char_E);
-
-    PD::drawBitmap(139, 102, Images::Char_N);
-    PD::drawBitmap(149, 102, Images::Char_A);
-    PD::drawBitmap(159, 102, Images::Char_M);
-    PD::drawBitmap(169, 102, Images::Char_E);
 
     for (uint32_t y = 0; y < 5; y++) {
     
@@ -215,16 +166,16 @@ void HighScoreState::render(GameContext gameContext, GameCookie *cookie) {
         
         if (index != y) {
 
-            for (uint8_t j = 3; j > 0; --j) {
-            
-                PD::drawBitmap(78 - (j * 10), 115 + (y * 11), Images::HS_Font[digits[j - 1] + 27]);
-            
-            }
-
             for (uint32_t x = 0; x < 3; x++) {
                 
-                PD::drawBitmap(144 + (x * 10), 115 + (y * 11), Images::HS_Font[cookie->initials[mode][y][x]]);
+                PD::drawBitmap(122 + (x * 10), 104 + (y * 11), Images::HS_Font[cookie->initials[mode][y][x]]);
 
+            }
+
+            for (uint8_t j = 3; j > 0; --j) {
+            
+                PD::drawBitmap(200 - (j * 10), 104 + (y * 11), Images::HS_Font[digits[j - 1] + 27]);
+            
             }
 
         }

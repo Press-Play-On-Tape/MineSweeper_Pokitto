@@ -2176,6 +2176,78 @@
 		},
 		"/music/mineswe7.raw": {
 			"sdcard": false
+		},
+		"/distributable/MineSweeper_Pokitto.bin.1.png": {
+			"sdcard": false
+		},
+		"/distributable/MineSweeper_Pokitto.bin.1.h": {
+			"sdcard": false
+		},
+		"/Pic3.png": {
+			"sdcard": false
+		},
+		"/Pic4.png": {
+			"sdcard": false
+		},
+		"/Pic5.png": {
+			"sdcard": false
+		},
+		"/distributable/Pic3.png": {
+			"sdcard": false
+		},
+		"/distributable/Pic4.png": {
+			"sdcard": false
+		},
+		"/distributable/Pic5.png": {
+			"sdcard": false
+		},
+		"/distributable/Pic3.h": {
+			"sdcard": false
+		},
+		"/distributable/Pic4.h": {
+			"sdcard": false
+		},
+		"/distributable/Pic5.h": {
+			"sdcard": false
+		},
+		"/Pic1.png": {
+			"sdcard": false
+		},
+		"/distributable/Pic1.png": {
+			"sdcard": false
+		},
+		"/distributable/Pic2.png": {
+			"sdcard": false
+		},
+		"/distributable/My_settings.h": {
+			"sdcard": false
+		},
+		"/distributable/Blurb.txt": {
+			"sdcard": false
+		},
+		"/distributable/MineSweeper_Pokitto.bin": {
+			"sdcard": false
+		},
+		"/distributable/MineSweeper.bin": {
+			"sdcard": false
+		},
+		"/distributable/MineSweeper.pop": {
+			"sdcard": false
+		},
+		"/distributable/Archive.zip": {
+			"sdcard": false
+		},
+		"/distributable/MineSweeper.zip": {
+			"sdcard": false
+		},
+		"/distributable/Pic2.h": {
+			"sdcard": false
+		},
+		"/distributable/Pic1.h": {
+			"sdcard": false
+		},
+		"/distributable/Movie.gif": {
+			"sdcard": false
 		}
 	},
 	"ideVersion": 10000,
